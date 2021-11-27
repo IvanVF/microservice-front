@@ -1,0 +1,27 @@
+.header-top {
+  background-color: #737eb9;
+  color: #ffffff;
+  text-align: center;
+}
+.header-top-item {
+  border: 2px solid #6a76ba;
+}
+.img-bicycle{
+  width: 100px
+}
+.header-middle {
+  background-color: #f1f8fe;
+  display: flex;
+  align-items: center;
+  font-family: Arial,Helvetica,sans-serif;
+}
+.search-submit {
+  background: #5abd32 url("src/assets/images/search.jpg") no-repeat center;
+  color: transparent;
+  width: 55px;
+  height: 33px;
+  border-radius: 3px;
+  border: 0;
+  margin-bottom: -11px;
+}
+
