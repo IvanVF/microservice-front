@@ -1,3 +1,13 @@
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
 .header-top {
   background-color: #737eb9;
   color: #ffffff;
@@ -65,5 +75,49 @@
   color: white;
   text-align: center;
 }
+
+.menu-list {
+  max-height: 35px;
+}
+.menu-list > li {
+  padding: 10px 0;
+}
+
+.menu-link {
+  color: white;
+}
+.menu-link:hover {
+  text-decoration: underline;
+  background-color: #737eb9;
+}
+
+.menu-sub-list {
+  font-size: 18px;
+  top: 100%;
+  right: 0;
+  background-color: #737eb9;
+  padding: 15px;
+  max-width: 200px;
+
+  transform: translate(0px, 10%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 0.3s ease 0s;
+}
+div .col-sm > li:hover .menu-sub-list {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0px, 0px);
+  pointer-events: all;
+}
+.menu-sub-list a {
+  color: white;
+}
+
+.menu-sub-link:hover {
+  text-decoration: underline;
+}
+
 
 

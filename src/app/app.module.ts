@@ -7,6 +7,7 @@ import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AutharisationComponent } from './components/autharisation/autharisation.component';
 import { HeaderComponent } from './components/header/header.component';
+import {AppUiModule} from "./app-ui.module";
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { HeaderComponent } from './components/header/header.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AppUiModule
   ],
   providers: [],
   bootstrap: [AppComponent]
