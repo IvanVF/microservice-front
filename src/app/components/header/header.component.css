@@ -79,6 +79,11 @@ li {
   border-radius: 5px;
 }
 
+.menu:hover {
+  background-color: #737eb9;
+  border-radius: 5px;
+}
+
 .menu-list {
   max-height: 35px;
 }
@@ -95,6 +100,7 @@ li {
 }
 
 .menu-sub-list {
+  margin-top: -3px;
   font-size: 18px;
   top: 100%;
   right: 0;
