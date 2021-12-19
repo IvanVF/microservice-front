@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-header',
@@ -7,8 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient
+  ) { }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.getUsers().subscribe(value => {});
+    console.log("users: ", this.getUsers().subscribe(value => {}));
+  }
 
+  getUsers(): Observable<any> {
+    return this.http.get("http://localhost:8200/users")
+  }
 }

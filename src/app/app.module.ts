@@ -10,6 +10,7 @@ import {AppUiModule} from "./app-ui.module";
 import {BodyHomeComponent} from "./components/body-home/body-home.component";
 import { FooterComponent } from './components/footer/footer.component';
 import { BicyclesComponent } from './components/bicycles/bicycles.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { BicyclesComponent } from './components/bicycles/bicycles.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AppUiModule
+    AppUiModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
