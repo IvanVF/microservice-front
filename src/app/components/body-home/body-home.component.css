@@ -26,3 +26,13 @@ label {
 .price-select {
   margin: 5px 5px 5px 5px;
 }
+
+.btn-choose {
+  background-color: #5abd32;
+  border-color: #5abd32;
+  border-radius: 5px;
+  color: white;
+  align-items: center;
+  width: 100%;
+  max-width: 200px;
+}
