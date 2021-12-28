@@ -1,0 +1,93 @@
+hr {
+  width: 100%;
+}
+
+li {
+  color: #383f4b;
+  font-weight: 700;
+  font-family: Arial,Helvetica,sans-serif;
+}
+
+span {
+  font-weight: 400;
+}
+
+.bicycle-bar {
+  /*position: relative;*/
+  background-color: #fff;
+  width: 300px;
+  min-height: 200px;
+  border: 1px solid #d4d9df;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.bicycle-image-bar {
+  width: 250px;
+  height: 166px;
+  display: block;
+  margin: 10px auto 10px auto;
+}
+
+.bicycle-title {
+  min-height: 50px;
+  text-align: center;
+  color: #5460a8;
+  font-size: 15px;
+  font-weight: 700
+}
+
+.bicycle-price {
+  color: #5ABD32;
+  font-size: 24px;
+  margin-left: 10px;
+  float: left;
+}
+
+.buy-bicycle-btn {
+  width: 100px;
+  height: 40px;
+  display: block;
+  margin-left: auto;
+}
+
+.buy-bicycle-btn:hover {
+  border: 1px solid #d4d9df;
+  border-radius: 5px;
+}
+
+.bicycle-dop-params {
+  display: none;
+  transform: translate(0px, 10%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 2s ease 2s;
+}
+
+.bicycle-bar:hover {
+  border: 3px solid #767ab8;
+}
+
+.bicycle-bar:hover > .bicycle-dop-params {
+  width: 300px;
+  margin-left: -15px;
+  margin-top: -13px;
+  background-color: #fff;
+  position:absolute;
+  display: inherit;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0px,  0px);
+  pointer-events: all;
+  z-index: 100;
+  border-bottom: 3px solid #767ab8;
+  border-left: 3px solid #767ab8;
+  border-right: 3px solid #767ab8;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.dop-ul {
+  margin-left: 10px;
+}

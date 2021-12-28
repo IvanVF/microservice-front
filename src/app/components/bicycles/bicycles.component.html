@@ -1,2 +1,54 @@
 <p>bicycles works!</p>
-<img *ngFor="let image of images" src="{{image.imgAddr}}" class="img-fluid">
+<div class="container">
+  <div class="row">
+    <div *ngFor="let bicycle of bicycles" class="col-lg-2 bicycle-bar">
+
+      <img  src="{{bicycle.imgAddr}}" class="img-fluid bicycle-image-bar">
+      <div class="bicycle-title">
+        {{bicycle.bicycleName}}
+      </div>
+      <div>
+        <div class="bicycle-price">{{bicycle.price}}</div>
+        <img src="assets/images/bicycle_component/buy-button.jpg" class="buy-bicycle-btn" alt="By this bicycle">
+      </div>
+      <hr/>
+
+      <div>
+        <ul>
+          <li>
+            Frame material:
+            <span>{{bicycle.frameMaterial}}</span>
+          </li>
+          <li>
+            Fork type:
+            <span>{{bicycle.forkType}}</span>
+          </li>
+          <li>
+            Number of speeds:
+            <span>{{bicycle.numberOfSpeeds}}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="bicycle-dop-params">
+        <ul class="dop-ul">
+          <li >
+            Weight:
+            <span>{{bicycle.weight}}</span>
+          </li>
+          <li>
+            Wheel diameter:
+            <span>{{bicycle.wheelDiameter}}</span>
+          </li>
+          <li>
+            Break type:
+            <span>{{bicycle.breakType}}</span>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+

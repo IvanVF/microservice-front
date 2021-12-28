@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from "rxjs";
-import {ImageEntity} from "../../services/images/image-entity";
+import {BicycleEntity} from "../../services/bicycles/bicycle-entity";
 
 @Component({
   selector: 'app-header',

@@ -1,4 +1,4 @@
-export class ImageEntity {
+export class BicycleEntity {
 
   id: number;
   name: string;

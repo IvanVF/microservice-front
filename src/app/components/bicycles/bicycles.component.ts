@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ImageEntity} from "../../services/images/image-entity";
-import {ImagesService} from "../../services/images/images.service";
+import {BicycleEntity} from "../../services/bicycles/bicycle-entity";
+import {BicyclesService} from "../../services/bicycles/bicycles.service";
 
 @Component({
   selector: 'app-bicycles',
@@ -8,16 +8,16 @@ import {ImagesService} from "../../services/images/images.service";
   styleUrls: ['./bicycles.component.css']
 })
 export class BicyclesComponent implements OnInit {
-  images: any;
+  bicycles: any;
 
   constructor(
-    private imageService: ImagesService
+    private bicycleService: BicyclesService
   ) { }
 
   ngOnInit() {
     let requestParams = new Map()
     requestParams.set("type", "WOMAN");
-    this.imageService.getImages(requestParams).subscribe(res => this.images = res);
+    this.bicycleService.getBicycles(requestParams).subscribe(res => this.bicycles = res);
   }
 
 }
