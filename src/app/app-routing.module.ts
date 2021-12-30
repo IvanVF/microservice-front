@@ -16,6 +16,9 @@ const routes: Routes = [
     path: 'bicycles', component: BicyclesComponent
   },
   {
+    path: 'bicycles/:type', component: BicyclesComponent
+  },
+  {
     path: '**', component: NotFoundComponent
   }
 ];

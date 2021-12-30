@@ -26,6 +26,10 @@ li {
   float: left;
 }
 
+.img-bicycle:hover {
+  border: 1px solid #d4d9df;
+}
+
 .img-enter-profile {
   float: left;
   width: 40px;

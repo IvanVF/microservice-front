@@ -3,7 +3,9 @@
   <div class="row header-top">
     <div class="col-sm header-top-item enter-profile" routerLink="auth">
       <div>
-        <img src="/assets/images/enter-profile.jpg" align="left" class="img-fluid img-enter-profile">
+        <img src="/assets/images/enter-profile.jpg"
+             align="left"
+             class="img-fluid img-enter-profile">
       </div>
       <div>
         Enter You profile
@@ -36,7 +38,9 @@
 <div class="container">
   <div class="row header-middle">
     <div class="col-lg-2">
-      <img src="/assets/images/bicycle.jpg" class="img-fluid img-bicycle">
+      <img src="/assets/images/bicycle.jpg"
+           class="img-fluid img-bicycle"
+           routerLink="/">
     </div>
     <div class="col-sm">
       <form action="">
@@ -65,19 +69,19 @@
         <a href="" class="menu-link">Bicycles</a>
         <ul class="menu-sub-list">
           <li>
-            <a routerLink="bicycles" class="menu-sub-link">Woman</a>
+            <a [routerLink]="['/bicycles', 'WOMAN']" class="menu-sub-link">Woman</a>
           </li>
           <li>
-            <a href="" class="menu-sub-link">Children</a>
+            <a [routerLink]="['/bicycles', 'CHILDREN']" class="menu-sub-link">Children</a>
           </li>
           <li>
-            <a href="" class="menu-sub-link">Road</a>
+            <a [routerLink]="['/bicycles', 'ROAD']" class="menu-sub-link">Road</a>
           </li>
           <li>
-            <a href="" class="menu-sub-link">Comfort</a>
+            <a [routerLink]="['/bicycles', 'COMFORT']" class="menu-sub-link">Comfort</a>
           </li>
           <li>
-            <a href="" class="menu-sub-link">Gravel</a>
+            <a [routerLink]="['/bicycles', 'GRAVEL']" class="menu-sub-link">Gravel</a>
           </li>
         </ul>
       </li>
