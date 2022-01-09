@@ -4,9 +4,7 @@
     <div *ngFor="let bicycle of bicycles" class="col-lg-2 bicycle-bar">
 
       <img  src="{{bicycle.imgAddr}}" class="img-fluid bicycle-image-bar">
-      <div class="bicycle-title">
-        {{bicycle.bicycleName}}
-      </div>
+      <div class="bicycle-title">{{bicycle.bicycleName}}</div>
       <div>
         <div class="bicycle-price">{{bicycle.price}}</div>
         <img src="assets/images/bicycle_component/buy-button.jpg" class="buy-bicycle-btn" alt="By this bicycle">

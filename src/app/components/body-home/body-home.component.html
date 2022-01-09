@@ -5,7 +5,7 @@
     </div>
 
     <div class="col-sm search">
-      <select name="Bicycles" id="" class="form-select">
+      <select name="Bicycles" class="form-select">
         <option value="Bicycles">Bicycles</option>
         <option value="Scooters">Scooters</option>
         <option value="Accessories">Accessories</option>
@@ -58,7 +58,27 @@
       <div>
         <button class="btn btn-choose">Choose</button>
       </div>
-
     </div>
+
+    <div class="container bars-categories">
+      <div class="row">
+        <div class="col-sm">Bicycles</div>
+        <div class="col-sm">Scooters</div>
+        <div class="col-sm">Accessories</div>
+        <div class="col-sm">Equipment</div>
+        <div class="col-sm">Spares</div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div *ngFor="let item of items" class="col-lg-2 item-bar">
+          <img src="{{item.imgAddr}}" class="img-fluid item-image-bar">
+          <div class="item-title">{{item.itemName}}</div>
+          <div class="item-price"></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>

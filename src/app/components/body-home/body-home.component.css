@@ -36,3 +36,30 @@ label {
   width: 100%;
   max-width: 200px;
 }
+
+.bars-categories {
+  color: #5460a8;
+  font-size: 16px;
+  cursor: pointer;
+  text-underline: #5460a8;
+}
+
+.item-bar {
+  background-color: #fff;
+  width: 300px;
+  min-height: 200px;
+  border: 1px solid #d4d9df;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.item-bar:hover {
+  border: 3px solid #767ab8;
+}
+
+.item-image-bar {
+  width: 250px;
+  height: 166px;
+  display: block;
+  margin: 10px auto 10px auto;
+}

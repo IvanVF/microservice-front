@@ -1,4 +1,5 @@
 import {Component, OnInit} from "@angular/core";
+import {BicyclesService} from "../../services/bicycles/bicycles.service";
 
 @Component({
   selector: 'app-body-home',
@@ -6,9 +7,15 @@ import {Component, OnInit} from "@angular/core";
   styleUrls: ['body-home.component.css']
 })
 export class BodyHomeComponent implements OnInit {
-  constructor() {
+  items: any;
+  requestParams= new Map();
+
+  constructor(
+    private bicycleService: BicyclesService,
+  ) {
   }
 
   ngOnInit() {
+    this.bicycleService.getBicycles(this.requestParams).subscribe(res => this.items = res);
   }
 }
