@@ -16,6 +16,14 @@ export class BodyHomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.bicycleService.getBicycles(this.requestParams).subscribe(res => this.items = res);
+
+    this.bicycleService.getBicycles(this.requestParams)
+      .pipe()
+      .subscribe(res => {
+        this.items = res;
+        let abc: string = "asd";
+        console.log(abc);
+        console.log(this.items);
+      });
   }
 }
