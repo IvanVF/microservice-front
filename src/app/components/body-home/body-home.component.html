@@ -62,11 +62,11 @@
 
     <div class="container bars-categories">
       <div class="row">
-        <div class="col-sm">Bicycles</div>
-        <div class="col-sm">Scooters</div>
-        <div class="col-sm">Accessories</div>
-        <div class="col-sm">Equipment</div>
-        <div class="col-sm">Spares</div>
+        <div (click)="changeItems('BICYCLES')" [ngClass]="{'select-item-type': selectedItem.get('BICYCLES')}" class="col-sm">Bicycles</div>
+        <div (click)="changeItems('SCOOTERS')" [ngClass]="{'select-item-type': selectedItem.get('SCOOTERS')}" class="col-sm">Scooters</div>
+        <div (click)="changeItems('ACCESSORIES')" [ngClass]="{'select-item-type': selectedItem.get('ACCESSORIES')}" class="col-sm">Accessories</div>
+        <div (click)="changeItems('EQUIPMENT')" [ngClass]="{'select-item-type': selectedItem.get('EQUIPMENT')}" class="col-sm">Equipment</div>
+        <div (click)="changeItems('SPARES')" [ngClass]="{'select-item-type': selectedItem.get('SPARES')}" class="col-sm">Spares</div>
       </div>
     </div>
 
@@ -74,8 +74,8 @@
       <div class="row">
         <div *ngFor="let item of items" class="col-lg-2 item-bar">
           <img src="{{item.imgAddr}}" class="img-fluid item-image-bar">
-          <div class="item-title">{{item.itemName}}</div>
-          <div class="item-price"></div>
+          <div class="item-name">{{item.name}}</div>
+          <div class="item-price">{{item.price}}</div>
         </div>
       </div>
     </div>

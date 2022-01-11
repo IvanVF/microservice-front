@@ -39,9 +39,10 @@ label {
 
 .bars-categories {
   color: #5460a8;
-  font-size: 16px;
+  font-size: 20px;
   cursor: pointer;
   text-underline: #5460a8;
+  text-align: center;
 }
 
 .item-bar {
@@ -62,4 +63,40 @@ label {
   height: 166px;
   display: block;
   margin: 10px auto 10px auto;
+}
+
+.item-name {
+  min-height: 50px;
+  text-align: center;
+  color: #5460a8;
+  font-size: 15px;
+  font-weight: 700
+}
+
+.item-price {
+  color: #5ABD32;
+  font-size: 24px;
+  margin-left: 10px;
+  float: left;
+}
+
+@media (min-width: 775px) {
+  .select-item-type {
+    color: #5ABD32;
+    border: 2px solid #5ABD32;
+    border-bottom: 0;
+    border-radius: 6px 6px 2px 2px;
+  }
+
+  .bars-categories {
+    border-bottom: 2px solid #5ABD32;
+  }
+}
+
+@media (max-width: 774px) {
+  .select-item-type {
+    color: #5ABD32;
+    border: 2px solid #5ABD32;
+    border-radius: 6px 6px 6px 6px;
+  }
 }
