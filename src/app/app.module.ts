@@ -11,6 +11,7 @@ import {BodyHomeComponent} from "./components/body-home/body-home.component";
 import { FooterComponent } from './components/footer/footer.component';
 import { BicyclesComponent } from './components/bicycles/bicycles.component';
 import { HttpClientModule } from "@angular/common/http";
+import { ScootersComponent } from './components/scooters/scooters.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from "@angular/common/http";
     HeaderComponent,
     BodyHomeComponent,
     FooterComponent,
-    BicyclesComponent
+    BicyclesComponent,
+    ScootersComponent
   ],
   imports: [
     BrowserModule,

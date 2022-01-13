@@ -1,5 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {BicyclesService} from "../../services/bicycles/bicycles.service";
+import {ScooterService} from "../../services/scooter.service";
 
 @Component({
   selector: 'app-body-home',
@@ -19,6 +20,7 @@ export class BodyHomeComponent implements OnInit {
 
   constructor(
     private bicycleService: BicyclesService,
+    private scooterService: ScooterService
   ) {
   }
 
@@ -60,7 +62,11 @@ export class BodyHomeComponent implements OnInit {
         break;
       }
       case "SCOOTERS": {
-        console.log("switched to scooters");
+        this.scooterService.getScooters(this.requestParams)
+          .pipe()
+          .subscribe(res => {
+            this.items = res;
+          })
         break;
       }
       case "ACCESSORIES": {

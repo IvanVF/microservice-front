@@ -1,3 +1,102 @@
 html, body {
   background-color: #f1f8fe;
 }
+
+/* BSAES - bicycle, scooter, accessories, equipment, spare components */
+/* start */
+
+.BSAES-bar {
+  background-color: #fff;
+  width: 300px;
+  min-height: 200px;
+  border: 1px solid #d4d9df;
+  border-radius: 20px;
+  margin: 10px;
+}
+
+.BSAES-image-bar {
+  width: 250px;
+  height: 166px;
+  display: block;
+  margin: 10px auto 10px auto;
+}
+
+.BSAES-title {
+  min-height: 50px;
+  text-align: center;
+  color: #5460a8;
+  font-size: 15px;
+  font-weight: 700
+}
+
+.BSAES-crossed-price {
+  color: #a5a5a5;
+  font-size: 15px;
+}
+
+.BSAES-discount {
+  color: #f36e6e;
+  font-size: 15px;
+  margin-left: 5px;
+}
+
+.BSAES-no-discount {
+  height: 15px;
+}
+
+.BSAES-price {
+  color: #5ABD32;
+  font-size: 24px;
+  margin-left: 10px;
+  float: left;
+}
+
+.BSAES-buy-btn {
+  width: 100px;
+  height: 40px;
+  display: block;
+  margin-left: auto;
+}
+
+.BSAES-buy-btn:hover {
+  border: 1px solid #d4d9df;
+  border-radius: 5px;
+}
+
+.BSAES-dop-params {
+  display: none;
+  transform: translate(0px, 10%);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all 2s ease 2s;
+}
+
+.BSAES-bar:hover {
+  border: 3px solid #767ab8;
+}
+
+.BSAES-bar:hover > .BSAES-dop-params {
+  width: 300px;
+  margin-left: -15px;
+  margin-top: -13px;
+  background-color: #fff;
+  position:absolute;
+  display: inherit;
+  opacity: 1;
+  visibility: visible;
+  transform: translate(0px,  0px);
+  pointer-events: all;
+  z-index: 100;
+  border-bottom: 3px solid #767ab8;
+  border-left: 3px solid #767ab8;
+  border-right: 3px solid #767ab8;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.BSAES-dop-ul {
+  margin-left: 12px;
+}
+
+/* end BSAES */

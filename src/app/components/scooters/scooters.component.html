@@ -1,0 +1,53 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let scooter of scooters"  class="col-lg-2 BSAES-bar">
+
+      <img src="{{scooter.imgAddr}}" class="BSAES-image-bar">
+      <div class="BSAES-title">{{scooter.name}}</div>
+      <div>
+        <div *ngIf="scooter.discount != 0">
+          <del class="BSAES-crossed-price">{{scooter.price}} r.</del>
+          <em class="BSAES-discount">discount {{scooter.discount}}%</em>
+        </div>
+        <div *ngIf="scooter.discount === 0" class="BSAES-no-discount"></div>
+        <div class="BSAES-price">{{(scooter.price * (1 - scooter.discount / 100)).toFixed(0)}}</div>
+        <img src="assets/images/bicycle_component/buy-button.jpg" class="BSAES-buy-btn" alt="By this scooter">
+      </div>
+      <hr/>
+
+      <div>
+        <ul>
+          <li>
+            Material:
+            <span>{{scooter.material}}</span>
+          </li>
+          <li>
+            Manufacturer:
+            <span>{{scooter.manufacturer}}</span>
+          </li>
+          <li>
+            Manufacturer country:
+            <span>{{scooter.manufacturerCountry}}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="BSAES-dop-params">
+        <ul class="BSAES-dop-ul">
+          <li>
+            Development country:
+            <span>{{scooter.developmentCountry}}</span>
+          </li>
+          <li>
+            Color:
+            <span>{{scooter.color}}</span>
+          </li>
+          <li *ngIf="!scooter.availability" style="color: orangered">
+            Not available
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>

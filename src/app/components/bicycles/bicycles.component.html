@@ -1,13 +1,17 @@
-<p>bicycles works!</p>
 <div class="container">
   <div class="row">
-    <div *ngFor="let bicycle of bicycles" class="col-lg-2 bicycle-bar">
+    <div *ngFor="let bicycle of bicycles" class="col-lg-2 BSAES-bar">
 
-      <img  src="{{bicycle.imgAddr}}" class="img-fluid bicycle-image-bar">
-      <div class="bicycle-title">{{bicycle.bicycleName}}</div>
+      <img  src="{{bicycle.imgAddr}}" class="img-fluid BSAES-image-bar">
+      <div class="BSAES-title">{{bicycle.name}}</div>
       <div>
-        <div class="bicycle-price">{{bicycle.price}}</div>
-        <img src="assets/images/bicycle_component/buy-button.jpg" class="buy-bicycle-btn" alt="By this bicycle">
+        <div *ngIf="bicycle.discount != 0">
+          <del class="BSAES-crossed-price">{{bicycle.price}} r.</del>
+          <em class="BSAES-discount">discount {{bicycle.discount}}%</em>
+        </div>
+        <div *ngIf="bicycle.discount === 0" class="BSAES-no-discount"></div>
+        <div class="BSAES-price">{{(bicycle.price * (1 - bicycle.discount / 100)).toFixed(0)}} r.</div>
+        <img src="assets/images/bicycle_component/buy-button.jpg" class="BSAES-buy-btn" alt="By this bicycle">
       </div>
       <hr/>
 
@@ -28,9 +32,9 @@
         </ul>
       </div>
 
-      <div class="bicycle-dop-params">
-        <ul class="dop-ul">
-          <li >
+      <div class="BSAES-dop-params">
+        <ul class="BSAES-dop-ul">
+          <li>
             Weight:
             <span>{{bicycle.weight}}</span>
           </li>

@@ -91,13 +91,10 @@
         <a href="" class="menu-link">Scooters</a>
         <ul class="menu-sub-list">
           <li>
-            <a href="" class="menu-sub-link">Scooter var №1</a>
+            <a [routerLink]="['/scooters', 'OFFROAD']" class="menu-sub-link">Offroad</a>
           </li>
           <li>
-            <a href="" class="menu-sub-link">Scooter var №2</a>
-          </li>
-          <li>
-            <a href="" class="menu-sub-link">Scooter var №3</a>
+            <a [routerLink]="['/scooters', 'CITY']" class="menu-sub-link">City</a>
           </li>
         </ul>
       </li>

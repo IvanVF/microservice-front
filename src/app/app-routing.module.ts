@@ -4,6 +4,7 @@ import {NotFoundComponent} from "./components/not-found/not-found.component";
 import {AutharisationComponent} from "./components/autharisation/autharisation.component";
 import {BodyHomeComponent} from "./components/body-home/body-home.component";
 import {BicyclesComponent} from "./components/bicycles/bicycles.component";
+import {ScootersComponent} from "./components/scooters/scooters.component";
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path: 'bicycles/:type', component: BicyclesComponent
+  },
+  {
+    path: 'scooters/:type', component: ScootersComponent
   },
   {
     path: '**', component: NotFoundComponent
