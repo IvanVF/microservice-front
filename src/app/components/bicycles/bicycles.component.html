@@ -46,6 +46,9 @@
             Break type:
             <span>{{bicycle.breakType}}</span>
           </li>
+          <li *ngIf="!bicycle.availability" style="color: orangered">
+            Not available
+          </li>
         </ul>
       </div>
 

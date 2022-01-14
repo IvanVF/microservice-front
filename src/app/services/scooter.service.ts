@@ -1,14 +1,16 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
+import {URLsService} from "./urls.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ScooterService {
-  scooterURL: string = "http://localhost:8200/scooters";
+  scooterURL: string = this.urlsService.microserviceBackCoreURL + "scooters";
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private urlsService: URLsService
   ) { }
 
   getScooters(requestParams: Map<string, any>) {

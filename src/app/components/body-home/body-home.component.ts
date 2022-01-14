@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {BicyclesService} from "../../services/bicycles/bicycles.service";
 import {ScooterService} from "../../services/scooter.service";
+import {AccessoriesService} from "../../services/accessories.service";
 
 @Component({
   selector: 'app-body-home',
@@ -20,7 +21,8 @@ export class BodyHomeComponent implements OnInit {
 
   constructor(
     private bicycleService: BicyclesService,
-    private scooterService: ScooterService
+    private scooterService: ScooterService,
+    private accessoriesService: AccessoriesService
   ) {
   }
 
@@ -70,7 +72,11 @@ export class BodyHomeComponent implements OnInit {
         break;
       }
       case "ACCESSORIES": {
-        console.log("switched to accessories");
+        this.accessoriesService.getAccessories(this.requestParams)
+          .pipe()
+          .subscribe(res => {
+            this.items = res;
+          })
         break;
       }
       case "EQUIPMENT": {

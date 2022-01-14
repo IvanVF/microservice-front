@@ -2,15 +2,17 @@ import {Injectable} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {BicycleEntity} from "./bicycle-entity";
+import {URLsService} from "../urls.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class BicyclesService {
-  bicycleURL: string = "http://localhost:8200/bicycles";
+  bicycleURL: string = this.urlsService.microserviceBackCoreURL + "bicycles";
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private urlsService: URLsService
   ) { }
 
   postBicycles(imageEntity: BicycleEntity): Observable<any> {

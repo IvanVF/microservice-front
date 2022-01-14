@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { BicyclesComponent } from './components/bicycles/bicycles.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ScootersComponent } from './components/scooters/scooters.component';
+import { AccessoriesComponent } from './components/accessories/accessories.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ScootersComponent } from './components/scooters/scooters.component';
     BodyHomeComponent,
     FooterComponent,
     BicyclesComponent,
-    ScootersComponent
+    ScootersComponent,
+    AccessoriesComponent
   ],
   imports: [
     BrowserModule,
