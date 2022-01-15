@@ -13,6 +13,7 @@ import { BicyclesComponent } from './components/bicycles/bicycles.component';
 import { HttpClientModule } from "@angular/common/http";
 import { ScootersComponent } from './components/scooters/scooters.component';
 import { AccessoriesComponent } from './components/accessories/accessories.component';
+import { EquipmentsComponent } from './components/equipments/equipments.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AccessoriesComponent } from './components/accessories/accessories.compo
     FooterComponent,
     BicyclesComponent,
     ScootersComponent,
-    AccessoriesComponent
+    AccessoriesComponent,
+    EquipmentsComponent
   ],
   imports: [
     BrowserModule,

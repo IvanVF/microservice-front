@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {BicyclesService} from "../../services/bicycles/bicycles.service";
 import {ScooterService} from "../../services/scooter.service";
 import {AccessoriesService} from "../../services/accessories.service";
+import {EquipmentService} from "../../services/equipment.service";
 
 @Component({
   selector: 'app-body-home',
@@ -22,7 +23,8 @@ export class BodyHomeComponent implements OnInit {
   constructor(
     private bicycleService: BicyclesService,
     private scooterService: ScooterService,
-    private accessoriesService: AccessoriesService
+    private accessoriesService: AccessoriesService,
+    private equipmentService: EquipmentService
   ) {
   }
 
@@ -80,7 +82,11 @@ export class BodyHomeComponent implements OnInit {
         break;
       }
       case "EQUIPMENT": {
-        console.log("switched to equipment");
+        this.equipmentService.getEquipment(this.requestParams)
+          .pipe()
+          .subscribe(res => {
+            this.items = res;
+          })
         break;
       }
       case "SPARES": {

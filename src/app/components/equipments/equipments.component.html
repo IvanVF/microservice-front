@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let equipment of equipments" class="col-lg-2 BSAES-bar">
+
+      <img  src="{{equipment.imgAddr}}" class="img-fluid BSAES-image-bar">
+      <div class="BSAES-title">{{equipment.name}}</div>
+      <div>
+        <div *ngIf="equipment.discount != 0">
+          <del class="BSAES-crossed-price">{{equipment.price}} r.</del>
+          <em class="BSAES-discount">discount {{equipment.discount}}%</em>
+        </div>
+        <div *ngIf="equipment.discount === 0" class="BSAES-no-discount"></div>
+        <div class="BSAES-price">{{(equipment.price * (1 - equipment.discount / 100)).toFixed(0)}} r.</div>
+        <img src="assets/images/bicycle_component/buy-button.jpg" class="BSAES-buy-btn" alt="By this accessory">
+      </div>
+      <hr/>
+
+      <div>
+        <ul>
+          <li>
+            Manufacturer:
+            <span>{{equipment.manufacturer}}</span>
+          </li>
+          <li *ngIf="equipment.material != null">
+            Material:
+            <span>{{equipment.material}}</span>
+          </li>
+          <li *ngIf="equipment.color != null">
+            Color:
+            <span>{{equipment.color}}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="BSAES-dop-params">
+        <ul class="BSAES-dop-ul">
+          <li *ngIf="equipment.developmentCountry != null">
+            Development country:
+            <span>{{equipment.developmentCountry}}</span>
+          </li>
+          <li *ngIf="equipment.manufacturerCountry != null">
+            Manufacturer country:
+            <span>{{equipment.manufacturerCountry}}</span>
+          </li>
+          <li *ngIf="equipment.features != null">
+            Features:
+            <span>{{equipment.features}}</span>
+          </li>
+          <li *ngIf="!equipment.availability" style="color: orangered">
+            Not available
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>
