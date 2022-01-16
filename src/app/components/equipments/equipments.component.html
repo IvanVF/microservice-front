@@ -46,6 +46,26 @@
             Features:
             <span>{{equipment.features}}</span>
           </li>
+          <li *ngIf="equipment.manufacturer != null">
+            Manufacturer:
+            <span>{{equipment.manufacturer}}</span>
+          </li>
+          <li *ngIf="equipment.color != null">
+            Produced colors:
+            <span>{{equipment.color}}</span>
+          </li>
+          <li *ngIf="equipment.size != null">
+            Size:
+            <span>{{equipment.size}}</span>
+          </li>
+          <li *ngIf="equipment.weight != null">
+            Weight:
+            <span>{{equipment.weight}}</span>
+          </li>
+          <li *ngIf="equipment.volume != null">
+            Volume:
+            <span>{{equipment.volume}}</span>
+          </li>
           <li *ngIf="!equipment.availability" style="color: orangered">
             Not available
           </li>

@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <div *ngFor="let spare of spares" class="col-lg-2 BSAES-bar">
+
+      <img  src="{{spare.imgAddr}}" class="img-fluid BSAES-image-bar">
+      <div class="BSAES-title">{{spare.name}}</div>
+      <div>
+        <div *ngIf="spare.discount != 0">
+          <del class="BSAES-crossed-price">{{spare.price}} r.</del>
+          <em class="BSAES-discount">discount {{spare.discount}}%</em>
+        </div>
+        <div *ngIf="spare.discount === 0" class="BSAES-no-discount"></div>
+        <div class="BSAES-price">{{(spare.price * (1 - spare.discount / 100)).toFixed(0)}} r.</div>
+        <img src="assets/images/bicycle_component/buy-button.jpg" class="BSAES-buy-btn" alt="By this accessory">
+      </div>
+      <hr/>
+
+      <div>
+        <ul>
+          <li>
+            Manufacturer:
+            <span>{{spare.manufacturer}}</span>
+          </li>
+          <li *ngIf="spare.material != null">
+            Material:
+            <span>{{spare.material}}</span>
+          </li>
+          <li *ngIf="spare.color != null">
+            Color:
+            <span>{{spare.color}}</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="BSAES-dop-params">
+        <ul class="BSAES-dop-ul">
+          <li *ngIf="spare.developmentCountry != null">
+            Development country:
+            <span>{{spare.developmentCountry}}</span>
+          </li>
+          <li *ngIf="spare.manufacturerCountry != null">
+            Manufacturer country:
+            <span>{{spare.manufacturerCountry}}</span>
+          </li>
+          <li *ngIf="spare.features != null">
+            Features:
+            <span>{{spare.features}}</span>
+          </li>
+          <li *ngIf="spare.manufacturer != null">
+            Manufacturer:
+            <span>{{spare.manufacturer}}</span>
+          </li>
+          <li *ngIf="spare.color != null">
+            Produced colors:
+            <span>{{spare.color}}</span>
+          </li>
+          <li *ngIf="spare.size != null">
+            Size:
+            <span>{{spare.size}}</span>
+          </li>
+          <li *ngIf="spare.weight != null">
+            Weight:
+            <span>{{spare.weight}}</span>
+          </li>
+          <li *ngIf="spare.volume != null">
+            Volume:
+            <span>{{spare.volume}}</span>
+          </li>
+          <li *ngIf="!spare.availability" style="color: orangered">
+            Not available
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</div>

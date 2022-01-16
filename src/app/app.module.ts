@@ -14,6 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ScootersComponent } from './components/scooters/scooters.component';
 import { AccessoriesComponent } from './components/accessories/accessories.component';
 import { EquipmentsComponent } from './components/equipments/equipments.component';
+import { SparesComponent } from './components/spares/spares.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { EquipmentsComponent } from './components/equipments/equipments.componen
     BicyclesComponent,
     ScootersComponent,
     AccessoriesComponent,
-    EquipmentsComponent
+    EquipmentsComponent,
+    SparesComponent
   ],
   imports: [
     BrowserModule,

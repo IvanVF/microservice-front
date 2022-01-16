@@ -3,6 +3,7 @@ import {BicyclesService} from "../../services/bicycles/bicycles.service";
 import {ScooterService} from "../../services/scooter.service";
 import {AccessoriesService} from "../../services/accessories.service";
 import {EquipmentService} from "../../services/equipment.service";
+import {SpareService} from "../../services/spare.service";
 
 @Component({
   selector: 'app-body-home',
@@ -24,7 +25,8 @@ export class BodyHomeComponent implements OnInit {
     private bicycleService: BicyclesService,
     private scooterService: ScooterService,
     private accessoriesService: AccessoriesService,
-    private equipmentService: EquipmentService
+    private equipmentService: EquipmentService,
+    private spareService: SpareService
   ) {
   }
 
@@ -90,7 +92,11 @@ export class BodyHomeComponent implements OnInit {
         break;
       }
       case "SPARES": {
-        console.log("switched to spares");
+        this.spareService.getSpares(this.requestParams)
+          .pipe()
+          .subscribe(res => {
+            this.items = res;
+          })
         break;
       }
       default: {

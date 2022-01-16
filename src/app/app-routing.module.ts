@@ -7,6 +7,7 @@ import {BicyclesComponent} from "./components/bicycles/bicycles.component";
 import {ScootersComponent} from "./components/scooters/scooters.component";
 import {AccessoriesComponent} from "./components/accessories/accessories.component";
 import {EquipmentsComponent} from "./components/equipments/equipments.component";
+import {SparesComponent} from "./components/spares/spares.component";
 
 const routes: Routes = [
   {
@@ -29,6 +30,9 @@ const routes: Routes = [
   },
   {
     path: 'equipments/:type', component: EquipmentsComponent
+  },
+  {
+    path: 'spares/:type', component: SparesComponent
   },
   {
     path: '**', component: NotFoundComponent
