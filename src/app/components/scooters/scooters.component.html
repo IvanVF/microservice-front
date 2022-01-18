@@ -1,5 +1,11 @@
 <div class="container">
   <div class="row">
+
+    <div class="BSAES-product-type-description">
+      <h1 class="BSAES-header">{{productType.toLowerCase()}} scooters</h1>
+      <p>{{productTypeDescription.description}}</p>
+    </div>
+
     <div *ngFor="let scooter of scooters"  class="col-lg-2 BSAES-bar">
 
       <img src="{{scooter.imgAddr}}" class="BSAES-image-bar">

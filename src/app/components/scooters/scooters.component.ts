@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ScooterService} from "../../services/scooter.service";
 import {ActivatedRoute} from "@angular/router";
+import {ProductTypeDescriptionService} from "../../services/product-type-description.service";
 
 @Component({
   selector: 'app-scooters',
@@ -10,19 +11,26 @@ import {ActivatedRoute} from "@angular/router";
 export class ScootersComponent implements OnInit {
 
   scooters: any;
+  productType: any;
+  productTypeDescription: any;
 
   constructor(
     private scooterService: ScooterService,
+    private productTypeDescriptionService: ProductTypeDescriptionService,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe( params => {
+      this.productType = this.route.snapshot.paramMap.get("type");
       let requestParams = new Map();
-      if (this.route.snapshot.paramMap.get("type") != null) {
-        requestParams.set("type", this.route.snapshot.paramMap.get("type"));
+      if (this.productType != null) {
+        requestParams.set("type", this.productType);
       }
-      this.scooterService.getScooters(requestParams).subscribe(res => this.scooters = res);
+
+      this.scooterService.getScooters(requestParams).pipe().subscribe(res => this.scooters = res);
+      this.productTypeDescriptionService.getDescriptionByName("SCOOTERS_" + this.productType)
+        .pipe().subscribe(res => this.productTypeDescription = res);
     })
   }
 

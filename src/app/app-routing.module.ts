@@ -8,6 +8,7 @@ import {ScootersComponent} from "./components/scooters/scooters.component";
 import {AccessoriesComponent} from "./components/accessories/accessories.component";
 import {EquipmentsComponent} from "./components/equipments/equipments.component";
 import {SparesComponent} from "./components/spares/spares.component";
+import {ProductPageComponent} from "./components/product-page/product-page.component";
 
 const routes: Routes = [
   {
@@ -33,6 +34,9 @@ const routes: Routes = [
   },
   {
     path: 'spares/:type', component: SparesComponent
+  },
+  {
+    path: 'product_page', component: ProductPageComponent
   },
   {
     path: '**', component: NotFoundComponent

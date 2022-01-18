@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {EquipmentService} from "../../services/equipment.service";
 import {ActivatedRoute} from "@angular/router";
+import {ProductTypeDescriptionService} from "../../services/product-type-description.service";
 
 @Component({
   selector: 'app-equipments',
@@ -9,20 +10,27 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class EquipmentsComponent implements OnInit {
   equipments: any;
+  productType: any;
+  productTypeDescription: any;
 
   constructor(
     private equipmentService: EquipmentService,
+    private productTypeDescriptionService: ProductTypeDescriptionService,
     private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(
       params => {
+        this.productType = this.route.snapshot.paramMap.get("type");
         let requestParams = new Map();
-        if (this.route.snapshot.paramMap.get("type") != null) {
-          requestParams.set("type", this.route.snapshot.paramMap.get("type"));
+        if (this.productType != null) {
+          requestParams.set("type", this.productType);
         }
-        this.equipmentService.getEquipment(requestParams).subscribe(res => this.equipments = res);
+
+        this.equipmentService.getEquipment(requestParams).pipe().subscribe(res => this.equipments = res);
+        this.productTypeDescriptionService.getDescriptionByName("EQUIPMENT_" + this.productType)
+          .pipe().subscribe(res => this.productTypeDescription = res);
       })
   }
 
