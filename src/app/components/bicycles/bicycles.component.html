@@ -6,7 +6,10 @@
   <div class="row">
     <div *ngFor="let bicycle of bicycles" class="col-lg-2 BSAES-bar">
 
-      <img  src="{{bicycle.imgAddr}}" class="img-fluid BSAES-image-bar">
+      <img  src="{{bicycle.imgAddr}}"
+            [routerLink]="['/product_page']"
+            [queryParams]="{'productGroup': 'BICYCLES', 'type': bicycleType, 'id': bicycle.id}"
+            class="img-fluid BSAES-image-bar">
       <div class="BSAES-title">{{bicycle.name}}</div>
       <div>
         <div *ngIf="bicycle.discount != 0">

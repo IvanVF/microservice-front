@@ -10,7 +10,7 @@ import {ProductTypeDescriptionService} from "../../services/product-type-descrip
 @Component({
   selector: 'app-product-page',
   templateUrl: './product-page.component.html',
-  styleUrls: ['./product-page.component.css']
+  styleUrls: ['./product-page.component.css', '../../app.component.css']
 })
 export class ProductPageComponent implements OnInit {
   requestParams = new Map();
@@ -18,10 +18,12 @@ export class ProductPageComponent implements OnInit {
   productGroup: any;
   productType: any;
   productTypeDescription: any;
+  isImageLarge: boolean = false;
+  productTitlePrefix: string = "";
 
   constructor(
     private route: ActivatedRoute,
-    private productDescriptionService: ProductTypeDescriptionService,
+    private productTypeDescriptionService: ProductTypeDescriptionService,
     private accessoriesService: AccessoriesService,
     private bicycleService: BicyclesService,
     private equipmentService: EquipmentService,
@@ -38,7 +40,15 @@ export class ProductPageComponent implements OnInit {
       }
     )
 
-    this.productDescriptionService.getDescriptionByName(this.productGroup + "_" + this.productType)
+    if (this.productGroup === "BICYCLES") {
+      this.productTitlePrefix = "Bicycle";
+    } else if (this.productGroup === "SCOOTERS") {
+      this.productTitlePrefix = "Scooter";
+    } else {
+      this.productTitlePrefix = this.productType.toLowerCase();
+    }
+
+    this.productTypeDescriptionService.getDescriptionByName(this.productGroup + "_" + this.productType)
       .pipe()
       .subscribe(res => {
         this.productTypeDescription = res;
@@ -49,11 +59,24 @@ export class ProductPageComponent implements OnInit {
         this.accessoriesService.getAccessories(this.requestParams)
           .pipe()
           .subscribe(res => {
-            this.product = res;
+            // @ts-ignore
+            this.product = res[0];
+          })
+        break;
+      }
+      case "BICYCLES": {
+        this.bicycleService.getBicycles(this.requestParams)
+          .pipe()
+          .subscribe(res => {
+            // @ts-ignore
+            this.product = res[0];
           })
       }
     }
-    console.log("product: ", this.productGroup);
+  }
+
+  changeImageSize() {
+    this.isImageLarge = !this.isImageLarge;
   }
 
 }

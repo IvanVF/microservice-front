@@ -1,2 +1,74 @@
-{{product[0].name}}
-{{productTypeDescription.description}}
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div>
+        <h1 class="product-name">{{productTitlePrefix}} {{product.name}}</h1>
+      </div>
+      <div *ngIf="product.availability" class="product-available">In stock</div>
+      <div *ngIf="!product.availability" class="product-not-available">Not available</div>
+    </div>
+    <div class="col-sm" style="text-align: right; color: #5460a8">
+      <img src="assets/images/printer.jpg" class="printer-image">
+      Print version
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <img [src]="product.imgAddr"
+           (click)="changeImageSize()"
+           [ngClass]="{'large-image': isImageLarge}"
+           class="product-image img-thumbnail">
+    </div>
+
+    <div class="col-sm">
+      <hr>
+      <div class="row">
+        <div class="col-sm">
+          <div *ngIf="product.discount != 0">
+            <del class="BSAES-crossed-price">{{product.price}} r.</del>
+            <em class="BSAES-discount">discount {{product.discount}}%</em>
+          </div>
+          <div *ngIf="product.discount === 0" class="BSAES-no-discount"></div>
+          <div class="product-price">{{(product.price * (1 - product.discount / 100)).toFixed(0)}} r.</div>
+          <p style="margin-left: 25px; color: orange">Cash-back 5%</p>
+        </div>
+        <div class="col-sm">
+          <img src="assets/images/bicycle_component/buy-button.jpg" class="buy-btn" alt="By this scooter">
+          <p style="color: #5460a8; font-size: 18px; text-align: center; text-decoration-line: underline; text-decoration-style: dotted">By in one click</p>
+        </div>
+      </div>
+      <hr>
+
+      <div *ngIf="product.frameMaterial != null">
+        <div class="prod-cart-desc-l">Frame material:</div>
+        <div class="prod-cart-desc-r">{{product.frameMaterial}}</div>
+      </div>
+      <div *ngIf="product.forkType != null">
+        <div class="prod-cart-desc-l">Fork type:</div>
+        <div class="prod-cart-desc-r">{{product.forkType}}</div>
+      </div>
+      <div *ngIf="product.rimType != null">
+        <div class="prod-cart-desc-l">Rim type:</div>
+        <div class="prod-cart-desc-r">{{product.rimType}}</div>
+      </div>
+      <div *ngIf="product.breakType != null">
+        <div class="prod-cart-desc-l">Break type:</div>
+        <div class="prod-cart-desc-r">{{product.breakType}}</div>
+      </div>
+      <div *ngIf="product.numberOfSpeeds != null">
+        <div class="prod-cart-desc-l">Number of speeds:</div>
+        <div class="prod-cart-desc-r">{{product.numberOfSpeeds}}</div>
+      </div>
+      <div *ngIf="product.weight != null">
+        <div class="prod-cart-desc-l">Weight:</div>
+        <div class="prod-cart-desc-r">{{product.weight}}</div>
+      </div>
+      <div *ngIf="product.wheelDiameter != null">
+        <div class="prod-cart-desc-l">Wheel diameter:</div>
+        <div class="prod-cart-desc-r">{{product.wheelDiameter}}</div>
+      </div>
+    </div>
+
+  </div>
+</div>

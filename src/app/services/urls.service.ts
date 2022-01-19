@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class URLsService {
-  public microserviceBackCoreURL: string = "http://localhost:8200/";
+  public microserviceBackCoreURL: string = "http://localhost:8341/";
 
   constructor() { }
 }
