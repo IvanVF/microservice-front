@@ -40,17 +40,17 @@
       </div>
       <hr>
 
-      <div *ngIf="product.frameMaterial != null">
-        <div class="prod-cart-desc-l">Frame material:</div>
-        <div class="prod-cart-desc-r">{{product.frameMaterial}}</div>
+      <div *ngIf="product.manufacturer != null">
+        <div class="prod-cart-desc-l">Manufacturer:</div>
+        <div class="prod-cart-desc-r">{{product.manufacturer}}</div>
       </div>
-      <div *ngIf="product.forkType != null">
-        <div class="prod-cart-desc-l">Fork type:</div>
-        <div class="prod-cart-desc-r">{{product.forkType}}</div>
+      <div *ngIf="product.sex != null">
+        <div class="prod-cart-desc-l">Sex:</div>
+        <div class="prod-cart-desc-r">{{product.sex}}</div>
       </div>
-      <div *ngIf="product.rimType != null">
-        <div class="prod-cart-desc-l">Rim type:</div>
-        <div class="prod-cart-desc-r">{{product.rimType}}</div>
+      <div *ngIf="product.weight != null">
+        <div class="prod-cart-desc-l">Weight:</div>
+        <div class="prod-cart-desc-r">{{product.weight}}</div>
       </div>
       <div *ngIf="product.breakType != null">
         <div class="prod-cart-desc-l">Break type:</div>
@@ -60,14 +60,94 @@
         <div class="prod-cart-desc-l">Number of speeds:</div>
         <div class="prod-cart-desc-r">{{product.numberOfSpeeds}}</div>
       </div>
+      <div *ngIf="product.color != null">
+        <div class="prod-cart-desc-l">Color:</div>
+        <div class="prod-cart-desc-r">{{product.color}}</div>
+      </div>
+      <div *ngIf="product.material != null">
+        <div class="prod-cart-desc-l">Material:</div>
+        <div class="prod-cart-desc-r">{{product.material}}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="tabs">
+    <div style="margin: 3px 3px 3px 3px;">Specification</div>
+  </div>
+  <div class="row content-box">
+
+    <div class="col-sm">
+      <div *ngIf="product.manufacturer != null">
+        <div class="content-box-specification-l">Manufacturer:</div>
+        <div class="content-box-specification-r">{{product.manufacturer}}</div>
+      </div>
+      <div *ngIf="product.frameMaterial != null">
+        <div class="content-box-specification-l">Frame material:</div>
+        <div class="content-box-specification-r">{{product.frameMaterial}}</div>
+      </div>
+      <div *ngIf="product.forkType != null">
+        <div class="content-box-specification-l">Fork type:</div>
+        <div class="content-box-specification-r">{{product.forkType}}</div>
+      </div>
+      <div *ngIf="product.rimType != null">
+        <div class="content-box-specification-l">Rim type:</div>
+        <div class="content-box-specification-r">{{product.rimType}}</div>
+      </div>
+      <div *ngIf="product.breakType != null">
+        <div class="content-box-specification-l">Break type:</div>
+        <div class="content-box-specification-r">{{product.breakType}}</div>
+      </div>
+      <div *ngIf="product.numberOfSpeeds != null">
+        <div class="content-box-specification-l">Number of speeds:</div>
+        <div class="content-box-specification-r">{{product.numberOfSpeeds}}</div>
+      </div>
       <div *ngIf="product.weight != null">
-        <div class="prod-cart-desc-l">Weight:</div>
-        <div class="prod-cart-desc-r">{{product.weight}}</div>
+        <div class="content-box-specification-l">Weight:</div>
+        <div class="content-box-specification-r">{{product.weight}}</div>
       </div>
       <div *ngIf="product.wheelDiameter != null">
-        <div class="prod-cart-desc-l">Wheel diameter:</div>
-        <div class="prod-cart-desc-r">{{product.wheelDiameter}}</div>
+        <div class="content-box-specification-l">Wheel diameter:</div>
+        <div class="content-box-specification-r">{{product.wheelDiameter}}</div>
       </div>
+      <div *ngIf="product.material != null">
+        <div class="content-box-specification-l">Material:</div>
+        <div class="content-box-specification-r">{{product.material}}</div>
+      </div>
+      <div *ngIf="product.developmentCountry != null">
+        <div class="content-box-specification-l">Development country:</div>
+        <div class="content-box-specification-r">{{product.developmentCountry}}</div>
+      </div>
+      <div *ngIf="product.manufacturerCountry != null">
+        <div class="content-box-specification-l">Manufacturer country:</div>
+        <div class="content-box-specification-r">{{product.manufacturerCountry}}</div>
+      </div>
+      <div *ngIf="product.color != null">
+        <div class="content-box-specification-l">Color:</div>
+        <div class="content-box-specification-r">{{product.color}}</div>
+      </div>
+      <div *ngIf="product.size != null">
+        <div class="content-box-specification-l">Size:</div>
+        <div class="content-box-specification-r">{{product.size}}</div>
+      </div>
+      <div *ngIf="product.features != null">
+        <div class="content-box-specification-l">Features:</div>
+        <div class="content-box-specification-r">{{product.features}}</div>
+      </div>
+      <div *ngIf="product.volume != null">
+        <div class="content-box-specification-l">volume:</div>
+        <div class="content-box-specification-r">{{product.volume}}</div>
+      </div>
+
+
+      <div *ngIf="product.sex != null">
+        <div class="content-box-specification-l">Sex:</div>
+        <div class="content-box-specification-r">{{product.sex}}</div>
+      </div>
+    </div>
+
+    <div class="col-sm">
+      <div *ngIf="product.description != null" class="product-description">{{product.description}}</div>
     </div>
 
   </div>
