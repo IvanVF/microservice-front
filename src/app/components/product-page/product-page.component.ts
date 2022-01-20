@@ -61,7 +61,7 @@ export class ProductPageComponent implements OnInit {
           .subscribe(res => {
             // @ts-ignore
             this.product = res[0];
-          })
+          });
         break;
       }
       case "BICYCLES": {
@@ -70,7 +70,35 @@ export class ProductPageComponent implements OnInit {
           .subscribe(res => {
             // @ts-ignore
             this.product = res[0];
-          })
+          });
+        break;
+      }
+      case "EQUIPMENT": {
+        this.equipmentService.getEquipment(this.requestParams)
+          .pipe()
+          .subscribe(res => {
+            // @ts-ignore
+            this.product = res[0];
+          });
+        break;
+      }
+      case "SCOOTERS": {
+        this.scooterService.getScooters(this.requestParams)
+          .pipe()
+          .subscribe(res => {
+            // @ts-ignore
+            this.product = res[0];
+          });
+        break;
+      }
+      case "SPARES": {
+        this.spareService.getSpares(this.requestParams)
+          .pipe()
+          .subscribe(res => {
+            // @ts-ignore
+            this.product = res[0];
+          });
+        break;
       }
     }
   }

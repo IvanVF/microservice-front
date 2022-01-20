@@ -7,12 +7,12 @@
     </div>
 
     <div *ngFor="let accessory of accessories" class="col-lg-2 BSAES-bar">
-      <img
-        src="{{accessory.imgAddr}}"
-        [routerLink]="['/product_page']"
-        [queryParams]="{'productGroup': 'ACCESSORIES', 'type': accessory.type, 'id': accessory.id}"
-        class="img-fluid BSAES-image-bar">
-      <div class="BSAES-title">{{accessory.name}}</div>
+      <div style="cursor: pointer"
+           [routerLink]="['/product_page']"
+           [queryParams]="{'productGroup': 'ACCESSORIES', 'type': accessory.type, 'id': accessory.id}">
+        <img src="{{accessory.imgAddr}}" class="img-fluid BSAES-image-bar">
+        <div class="BSAES-title">{{accessory.name}}</div>
+      </div>
       <div>
         <div *ngIf="accessory.discount != 0">
           <del class="BSAES-crossed-price">{{accessory.price}} r.</del>

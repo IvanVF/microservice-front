@@ -8,10 +8,11 @@ import {SpareService} from "../../services/spare.service";
 @Component({
   selector: 'app-body-home',
   templateUrl: 'body-home.component.html',
-  styleUrls: ['body-home.component.css']
+  styleUrls: ['body-home.component.css', '../../app.component.css']
 })
 export class BodyHomeComponent implements OnInit {
   items: any;
+  productGroup: string = "";
   requestParams = new Map();
   selectedItem = new Map<string, boolean> ([
     ["BICYCLES", false],
@@ -37,6 +38,7 @@ export class BodyHomeComponent implements OnInit {
       .subscribe(res => {
         this.items = res;
         this.selectedItem.set("BICYCLES", true)
+        this.productGroup = "BICYCLES";
       });
   }
 
@@ -48,7 +50,8 @@ export class BodyHomeComponent implements OnInit {
     for (let key of this.selectedItem.keys()) {
       this.selectedItem.set(key, false);
     }
-    this.selectedItem.set(itemType, true);
+    this.productGroup = itemType;
+      this.selectedItem.set(itemType, true);
   }
 
   /**

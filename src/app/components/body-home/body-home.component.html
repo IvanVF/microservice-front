@@ -73,9 +73,21 @@
     <div class="container">
       <div class="row">
         <div *ngFor="let item of items" class="col-lg-2 item-bar">
-          <img src="{{item.imgAddr}}" class="img-fluid item-image-bar">
-          <div class="item-name">{{item.name}}</div>
-          <div class="item-price">{{item.price}}</div>
+          <div style="cursor: pointer"
+               [routerLink]="['/product_page']"
+               [queryParams]="{'productGroup': productGroup, 'type': item.type, 'id': item.id}">
+            <img src="{{item.imgAddr}}" class="img-fluid item-image-bar">
+            <div class="item-name">{{item.name}}</div>
+          </div>
+          <div>
+            <div *ngIf="item.discount != 0">
+              <del class="BSAES-crossed-price">{{item.price}} r.</del>
+              <em class="BSAES-discount">discount {{item.discount}}%</em>
+            </div>
+            <div *ngIf="item.discount === 0" class="BSAES-no-discount"></div>
+            <div class="BSAES-price">{{item.price.toFixed(0)}} r.</div>
+            <img src="assets/images/bicycle_component/buy-button.jpg" class="BSAES-buy-btn" alt="By this bicycle">
+          </div>
         </div>
       </div>
     </div>

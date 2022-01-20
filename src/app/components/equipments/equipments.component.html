@@ -8,8 +8,13 @@
   <div class="row">
     <div *ngFor="let equipment of equipments" class="col-lg-2 BSAES-bar">
 
-      <img  src="{{equipment.imgAddr}}" class="img-fluid BSAES-image-bar">
-      <div class="BSAES-title">{{equipment.name}}</div>
+      <div style="cursor: pointer"
+           [routerLink]="['/product_page']"
+           [queryParams]="{'productGroup': 'EQUIPMENT', 'type': equipment.type, 'id': equipment.id}">
+        <img  src="{{equipment.imgAddr}}" class="img-fluid BSAES-image-bar">
+        <div class="BSAES-title">{{equipment.name}}</div>
+      </div>
+
       <div>
         <div *ngIf="equipment.discount != 0">
           <del class="BSAES-crossed-price">{{equipment.price}} r.</del>

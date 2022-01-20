@@ -77,7 +77,7 @@
   </div>
   <div class="row content-box">
 
-    <div class="col-sm">
+    <div class="col-sm" style="margin-top: 10px">
       <div *ngIf="product.manufacturer != null">
         <div class="content-box-specification-l">Manufacturer:</div>
         <div class="content-box-specification-r">{{product.manufacturer}}</div>
@@ -146,7 +146,16 @@
       </div>
     </div>
 
-    <div class="col-sm">
+    <div class="col-sm" style="margin-top: 10px">
+      <div *ngIf="product.level != null">
+        <p style="text-align: center; color: #383f4b; font-weight: 500">Equipment level (from 1 to 8):</p>
+        <angular-gradient-progressbar
+          [type]="1"
+          [progressBarWidth]="5"
+          [barCount] ="8"
+          [value]="product.level * 100 / 8"
+        ></angular-gradient-progressbar>
+      </div>
       <div *ngIf="product.description != null" class="product-description">{{product.description}}</div>
     </div>
 
