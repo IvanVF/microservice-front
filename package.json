@@ -22,6 +22,7 @@
     "@angular/router": "~12.2.0",
     "angular-gradient-progressbar": "0.0.1-1.1",
     "bootstrap": "^5.1.3",
+    "express": "^4.17.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"
