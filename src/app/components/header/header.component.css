@@ -21,6 +21,11 @@ li {
   justify-content: center;
 }
 
+.header-top-item-link:hover {
+  cursor: pointer;
+  background-color: #5460a8;
+}
+
 .img-bicycle {
   width: 100px;
   float: left;
@@ -53,6 +58,8 @@ li {
 .search-input {
   font-family: 'Times New Roman', Helvetica, sans-serif;
   color: gray;
+  width: 80%;
+  max-width: 600px;
 }
 
 .search-submit {
