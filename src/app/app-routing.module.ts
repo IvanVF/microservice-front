@@ -9,6 +9,7 @@ import {AccessoriesComponent} from "./components/accessories/accessories.compone
 import {EquipmentsComponent} from "./components/equipments/equipments.component";
 import {SparesComponent} from "./components/spares/spares.component";
 import {ProductPageComponent} from "./components/product-page/product-page.component";
+import {AboutComponent} from "./components/about/about.component";
 
 const routes: Routes = [
   {
@@ -37,6 +38,9 @@ const routes: Routes = [
   },
   {
     path: 'product_page', component: ProductPageComponent
+  },
+  {
+    path: 'about', component: AboutComponent
   },
   {
     path: '**', component: NotFoundComponent
