@@ -96,6 +96,7 @@ li {
 }
 
 .menu-link {
+  cursor: pointer;
   color: white;
 }
 .menu-link:hover {
