@@ -18,6 +18,7 @@ import { SparesComponent } from './components/spares/spares.component';
 import { ProductPageComponent } from './components/product-page/product-page.component';
 import {AngularGradientProgressbarModule} from "angular-gradient-progressbar";
 import { AboutComponent } from './components/about/about.component';
+import { ForCustomersComponent } from './components/for-customers/for-customers.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { AboutComponent } from './components/about/about.component';
     EquipmentsComponent,
     SparesComponent,
     ProductPageComponent,
-    AboutComponent
+    AboutComponent,
+    ForCustomersComponent
   ],
   imports: [
     BrowserModule,

@@ -6,12 +6,23 @@ ul, li {  list-style: none;}
   margin-top: 10px;
 }
 
-.product-image {
-  cursor: zoom-in;
-  max-width: 500px;
-  max-height: 322px;
-  display: block;
-  margin: 10px auto 10px auto;
+@media (min-width: 775px) {
+  .product-image {
+    cursor: zoom-in;
+    max-width: 500px;
+    max-height: 322px;
+    display: block;
+    margin: 10px auto 10px auto;
+  }
+}
+
+@media (max-width: 775px) {
+  .product-image {
+    cursor: zoom-in;
+    width: 95%;
+    display: block;
+    margin: 10px auto 10px auto;
+  }
 }
 
 .large-image {
