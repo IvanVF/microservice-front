@@ -11,6 +11,7 @@ import {SparesComponent} from "./components/spares/spares.component";
 import {ProductPageComponent} from "./components/product-page/product-page.component";
 import {AboutComponent} from "./components/about/about.component";
 import {ForCustomersComponent} from "./components/for-customers/for-customers.component";
+import {DeliveryComponent} from "./components/delivery/delivery.component";
 
 const routes: Routes = [
   {
@@ -45,6 +46,9 @@ const routes: Routes = [
   },
   {
     path: 'for_customers', component: ForCustomersComponent
+  },
+  {
+    path: 'delivery', component: DeliveryComponent
   },
   {
     path: '**', component: NotFoundComponent

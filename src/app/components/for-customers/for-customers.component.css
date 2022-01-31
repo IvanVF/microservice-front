@@ -24,7 +24,7 @@ span {
 }
 
 ul {
-  margin-left: 100px;
+  margin-left: 10px;
   color: #606060;
   font-size: 16px;
   font-weight: 400;
@@ -63,7 +63,7 @@ ul li {
 
 .return-clarification-div {
   min-height: 50px;
-  margin-left: 100px;
+  margin-left: 10px;
   border: 3px solid #5461a9;
   border-radius: 10px;
   display: flex;
