@@ -1,0 +1,68 @@
+h1 {
+  color: #606060;
+  font-size: 28px;
+  font-weight: 400;
+  margin-top: 5px;
+  text-align: center;
+}
+
+h2 {
+  color: #5660a5;
+  font-size: 18px;
+  margin-top: 5px;
+}
+
+span {
+  color: #5abd32;
+  font-size: 25px;
+  font-weight: 700;
+}
+
+ol {
+  margin-top: 10px;
+
+  color: #606060;
+  font-size: 16px;
+  font-weight: 400;
+  list-style-type: none;
+}
+
+ol li {
+  padding-left: 2rem;
+  background-image: url(delivery_list.jpg);
+  background-size: 1.2rem 1.2rem;
+  background-repeat: no-repeat;
+}
+
+.img-delivery-assembling {
+  width: 95%;
+  max-width: 500px;
+  min-width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-delivery-over-the-world {
+  width: 95%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.img-delivery-stages {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-height: 100px;
+}
+
+.div-align-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgrey;
+}
+
+
+
