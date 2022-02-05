@@ -1,17 +1,38 @@
 <div class="container">
   <h1>My shopping cart</h1>
+  <div *ngIf="productList.length > 0" class="row table-header">
+    <div class="col-sm table-header-text">Name</div>
+    <div class="col-lg"></div>
+    <div class="col-sm table-header-text">Count</div>
+    <div class="col-sm table-header-text">Price</div>
+    <div class="col-sm table-header-text">Sum</div>
+  </div>
+
     <div *ngFor="let product of productList" class="row product-cell">
       <div class="col-sm">
         <img src="{{product.imgAddr}}"
              class="img-fluid img-product"
              title="{{product.description}}">
       </div>
+
       <div class="col-lg product-name"
            [routerLink]="['/product_page']"
            [queryParams]="{'productGroup': product.productGroup, 'type': null, 'id': product.id}">
         {{product.name}}
       </div>
+
+      <div class="col-sm minus-plus-div">
+        <div class="minus-plus"
+             style="padding-left: 12px; padding-right: 12px;"
+             (click)="decreaseProductCount(product)">-</div>
+        <div class="product-count">{{product.productCount}}</div>
+        <div class="minus-plus"
+             style="float: none"
+             (click)="increaseProductCount(product)">+</div>
+      </div>
+
       <div class="col-sm">
+        <p class="narrow-screen-description">Price:</p>
         <div class="price-and-discount">
           <div *ngIf="product.discount != 0">
             <del class="BSAES-crossed-price">{{product.price}} r.</del>
@@ -20,8 +41,38 @@
           <div *ngIf="product.discount === 0" class="BSAES-no-discount"></div>
           <div class="BSAES-price" style="float: none">{{(product.price * (1 - product.discount / 100)).toFixed(0)}} r.</div>
         </div>
-
       </div>
+
+      <div class="col-sm">
+        <p class="narrow-screen-description">Sum:</p>
+        <div class="price-and-discount">
+          <div class="BSAES-price" style="float: none">{{(product.price * product.productCount * (1 - product.discount / 100)).toFixed(0)}} r.</div>
+        </div>
+      </div>
+
     </div>
+
+  <div *ngIf="productList.length > 0" class="row order-description">
+    <div class="col-sm">
+      <p style="font-size: 20px; color: black">My Order:</p>
+    </div>
+
+    <div class="col-sm">
+      <p>Total product cost without delivery:</p>
+      <p style="color: #5ABD32">{{totalCostWithoutDelivery.toFixed(0)}} r.</p>
+    </div>
+
+    <div class="col-sm">
+      <p>Economy:</p>
+      <p style="color: #5ABD32">{{customerEconomyOnDiscounts.toFixed(0)}}</p>
+    </div>
+
+    <div class="col-sm">
+      <p>Total cost to pay:</p>
+      <p style="color: #5ABD32">{{totalCost.toFixed(0)}}</p>
+    </div>
+  </div>
+
+  <h2 *ngIf="productList.length < 1">Uups, Your shopping cart is empty!</h2>
 </div>
 

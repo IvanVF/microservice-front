@@ -6,6 +6,7 @@ import {EquipmentService} from "../../services/equipment.service";
 import {SpareService} from "../../services/spare.service";
 import {ShoppingCartService} from "../../services/shopping-cart.service";
 import {ShortProductEntity} from "../../entities/short-product-entity";
+import * as _ from "lodash";
 import {Subject} from "rxjs";
 
 @Component({
@@ -148,9 +149,16 @@ export class BodyHomeComponent implements OnInit {
    * Add product information to array "productList" in ShoppingCart service
    */
   addItemToProductCart(item: any, productGroup: string) {
-    let product: ShortProductEntity = new ShortProductEntity(item.id, productGroup, item.imgAddr, item.name, item.price, item.discount, item.description.replace(/\r?\n/g, ""));
-    this.productListOld.push(product);
-    console.log(this.productListOld.length);
+    let oldProductIndex = _.findIndex(this.productListOld, (product) => {
+      return product.productGroup == productGroup && product.id == item.id;
+    });
+    if (oldProductIndex !== -1) {
+      this.productListOld[oldProductIndex].productCount++;
+    } else {
+      let product: ShortProductEntity = new ShortProductEntity(item.id, productGroup, item.imgAddr, item.name, item.price, item.discount, item.description.replace(/\r?\n/g, ""), 1);
+      this.productListOld.push(product);
+    }
+
     this.productList.next(this.productListOld);
   }
 

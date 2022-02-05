@@ -27,8 +27,10 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.shoppingCartService.productList.subscribe((productList) => {
       if (productList.length > 0) {
-        const product = productList[productList.length - 1];
-        this.totalPrice += product.price * (100 - product.discount) / 100;
+        this.totalPrice = 0;
+        productList.forEach((product) => {
+        this.totalPrice += product.price * product.productCount * (100 - product.discount) / 100;
+        });
         this.productCount = productList.length;
       }
     })

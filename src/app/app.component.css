@@ -55,6 +55,7 @@ html, body {
   color: #f36e6e;
   font-size: 15px;
   margin-left: 5px;
+  white-space: nowrap;
 }
 
 .BSAES-no-discount {

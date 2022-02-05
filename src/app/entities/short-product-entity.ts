@@ -34,7 +34,12 @@ export class ShortProductEntity {
    */
   description: string;
 
-  constructor(id: number, productGroup: string, imgAddr: string, name: string, price: number, discount: number, description: string) {
+  /**
+   * Number of one type products in shopping cart
+   */
+  productCount: number;
+
+  constructor(id: number, productGroup: string, imgAddr: string, name: string, price: number, discount: number, description: string, productCount: number) {
     this.id = id;
     this.productGroup = productGroup;
     this.imgAddr = imgAddr;
@@ -42,5 +47,6 @@ export class ShortProductEntity {
     this.price = price;
     this.discount = discount;
     this.description = description;
+    this.productCount = productCount;
   }
 }
