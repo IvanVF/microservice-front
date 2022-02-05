@@ -59,7 +59,7 @@ li {
   font-family: 'Times New Roman', Helvetica, sans-serif;
   color: gray;
   width: 80%;
-  max-width: 600px;
+  max-width: 500px;
 }
 
 .search-submit {
@@ -79,6 +79,10 @@ li {
 
 .color-change :hover {
   color: blueviolet;
+}
+
+.img-shopping-cart {
+  height: 40px;
 }
 
 .header-bottom {

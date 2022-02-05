@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>My shopping cart</h1>
+    <div *ngFor="let product of productList" class="row product-cell">
+      <div class="col-sm">
+        <img src="{{product.imgAddr}}"
+             class="img-fluid img-product"
+             title="{{product.description}}">
+      </div>
+      <div class="col-lg product-name"
+           [routerLink]="['/product_page']"
+           [queryParams]="{'productGroup': product.productGroup, 'type': null, 'id': product.id}">
+        {{product.name}}
+      </div>
+      <div class="col-sm">
+        <div class="price-and-discount">
+          <div *ngIf="product.discount != 0">
+            <del class="BSAES-crossed-price">{{product.price}} r.</del>
+            <em class="BSAES-discount">discount {{product.discount}}%</em>
+          </div>
+          <div *ngIf="product.discount === 0" class="BSAES-no-discount"></div>
+          <div class="BSAES-price" style="float: none">{{(product.price * (1 - product.discount / 100)).toFixed(0)}} r.</div>
+        </div>
+
+      </div>
+    </div>
+</div>
+

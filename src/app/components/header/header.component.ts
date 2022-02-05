@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import {Observable} from "rxjs";
-import {BicycleEntity} from "../../services/bicycles/bicycle-entity";
+import {Component, OnInit} from '@angular/core';
+import {ShoppingCartService} from "../../services/shopping-cart.service";
+
 
 @Component({
   selector: 'app-header',
@@ -10,25 +9,28 @@ import {BicycleEntity} from "../../services/bicycles/bicycle-entity";
 })
 export class HeaderComponent implements OnInit {
 
+  /**
+   * Price of all products that wants to buy customer
+   */
+  totalPrice: number = 0;
+
+  /**
+   * Number of products in shopping cart (product list length)
+   */
+  productCount: number = 0;
+
   constructor(
-    private http: HttpClient
-  ) { }
+    private shoppingCartService: ShoppingCartService
+  ) {
+  }
 
   ngOnInit(): void {
-    this.getUsers().subscribe(value => {});
-    console.log("users: ", this.getUsers().subscribe(value => {}));
-    let a=10;
-    let b=11;
-    //this.postImage().subscribe(value => {});
-
-  }
-
-  getUsers(): Observable<any> {
-    return this.http.get("http://localhost:8200/users");
-  }
-
-  postImage(): Observable<any> {
-    const body = {imgAddr: 123, description: "descr", type: "dont know"};
-    return this.http.post("http://localhost:8200/image", body);
+    this.shoppingCartService.productList.subscribe((productList) => {
+      if (productList.length > 0) {
+        const product = productList[productList.length - 1];
+        this.totalPrice += product.price * (100 - product.discount) / 100;
+        this.productCount = productList.length;
+      }
+    })
   }
 }

@@ -62,31 +62,34 @@
 
     <div class="container bars-categories">
       <div class="row">
-        <div (click)="changeItems('BICYCLES')" [ngClass]="{'select-item-type': selectedItem.get('BICYCLES')}" class="col-sm">Bicycles</div>
-        <div (click)="changeItems('SCOOTERS')" [ngClass]="{'select-item-type': selectedItem.get('SCOOTERS')}" class="col-sm">Scooters</div>
-        <div (click)="changeItems('ACCESSORIES')" [ngClass]="{'select-item-type': selectedItem.get('ACCESSORIES')}" class="col-sm">Accessories</div>
-        <div (click)="changeItems('EQUIPMENT')" [ngClass]="{'select-item-type': selectedItem.get('EQUIPMENT')}" class="col-sm">Equipment</div>
-        <div (click)="changeItems('SPARES')" [ngClass]="{'select-item-type': selectedItem.get('SPARES')}" class="col-sm">Spares</div>
+        <div (click)="changeProductGroup('BICYCLES')" [ngClass]="{'select-item-type': selectedItem.get('BICYCLES')}" class="col-sm">Bicycles</div>
+        <div (click)="changeProductGroup('SCOOTERS')" [ngClass]="{'select-item-type': selectedItem.get('SCOOTERS')}" class="col-sm">Scooters</div>
+        <div (click)="changeProductGroup('ACCESSORIES')" [ngClass]="{'select-item-type': selectedItem.get('ACCESSORIES')}" class="col-sm">Accessories</div>
+        <div (click)="changeProductGroup('EQUIPMENT')" [ngClass]="{'select-item-type': selectedItem.get('EQUIPMENT')}" class="col-sm">Equipment</div>
+        <div (click)="changeProductGroup('SPARES')" [ngClass]="{'select-item-type': selectedItem.get('SPARES')}" class="col-sm">Spares</div>
       </div>
     </div>
 
     <div class="container">
       <div class="row">
-        <div *ngFor="let item of items" class="col-lg-2 item-bar">
+        <div *ngFor="let product of products" class="col-lg-2 item-bar">
           <div style="cursor: pointer"
                [routerLink]="['/product_page']"
-               [queryParams]="{'productGroup': productGroup, 'type': item.type, 'id': item.id}">
-            <img src="{{item.imgAddr}}" class="img-fluid item-image-bar">
-            <div class="item-name">{{item.name}}</div>
+               [queryParams]="{'productGroup': productGroup, 'type': product.type, 'id': product.id}">
+            <img src="{{product.imgAddr}}" class="img-fluid item-image-bar">
+            <div class="item-name">{{product.name}}</div>
           </div>
           <div>
-            <div *ngIf="item.discount != 0">
-              <del class="BSAES-crossed-price">{{item.price}} r.</del>
-              <em class="BSAES-discount">discount {{item.discount}}%</em>
+            <div *ngIf="product.discount != 0">
+              <del class="BSAES-crossed-price">{{product.price}} r.</del>
+              <em class="BSAES-discount">discount {{product.discount}}%</em>
             </div>
-            <div *ngIf="item.discount === 0" class="BSAES-no-discount"></div>
-            <div class="BSAES-price">{{(item.price * (1 - item.discount / 100)).toFixed(0)}} r.</div>
-            <img src="assets/images/bicycle_component/buy-button.jpg" class="BSAES-buy-btn" alt="By this bicycle">
+            <div *ngIf="product.discount === 0" class="BSAES-no-discount"></div>
+            <div class="BSAES-price">{{(product.price * (1 - product.discount / 100)).toFixed(0)}} r.</div>
+            <img src="assets/images/bicycle_component/buy-button.jpg"
+                 class="BSAES-buy-btn"
+                 alt="By this bicycle"
+                (click)="addItemToProductCart(product, productGroup)">
           </div>
         </div>
       </div>
