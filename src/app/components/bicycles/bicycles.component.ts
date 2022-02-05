@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BicyclesService} from "../../services/bicycles.service";
 import {ActivatedRoute} from "@angular/router";
 import {ProductTypeDescriptionService} from "../../services/product-type-description.service";
+import {ShoppingCartService} from "../../services/shopping-cart.service";
 
 @Component({
   selector: 'app-bicycles',
@@ -16,8 +17,10 @@ export class BicyclesComponent implements OnInit {
   constructor(
     private bicycleService: BicyclesService,
     private productTypeDescriptionService: ProductTypeDescriptionService,
+    private shoppingCartService: ShoppingCartService,
     private route: ActivatedRoute
-) { }
+  ) {
+  }
 
   ngOnInit() {
     this.route.params.subscribe(
@@ -32,7 +35,13 @@ export class BicyclesComponent implements OnInit {
         this.productTypeDescriptionService.getDescriptionByName("BICYCLES_" + this.bicycleType)
           .pipe().subscribe(res => this.productTypeDescription = res);
       });
+  }
 
+  /**
+   * Added product to product list in shopping cart service
+   */
+  addProductToShoppingCart(product: any, productGroup: string) {
+    this.shoppingCartService.addProductToProductList(product, productGroup);
   }
 
 }

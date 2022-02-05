@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SpareService} from "../../services/spare.service";
 import {ActivatedRoute} from "@angular/router";
 import {ProductTypeDescriptionService} from "../../services/product-type-description.service";
+import {ShoppingCartService} from "../../services/shopping-cart.service";
 
 @Component({
   selector: 'app-spares',
@@ -16,6 +17,7 @@ export class SparesComponent implements OnInit {
   constructor(
     private spareService: SpareService,
     private productTypeDescriptionService: ProductTypeDescriptionService,
+    private shoppingCartService: ShoppingCartService,
     private route: ActivatedRoute
   ) { }
 
@@ -31,6 +33,13 @@ export class SparesComponent implements OnInit {
         this.productTypeDescriptionService.getDescriptionByName("SPARES_" + this.productType)
           .pipe().subscribe(res => this.productTypeDescription = res);
       })
+  }
+
+  /**
+   * Added product to product list in shopping cart service
+   */
+  addProductToShoppingCart(product: any, productGroup: string) {
+    this.shoppingCartService.addProductToProductList(product, productGroup);
   }
 
 }
