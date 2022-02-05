@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AccessoriesService} from "../../services/accessories.service";
 import {ActivatedRoute} from "@angular/router";
 import {ProductTypeDescriptionService} from "../../services/product-type-description.service";
+import {ShoppingCartService} from "../../services/shopping-cart.service";
 
 @Component({
   selector: 'app-accessories',
@@ -17,6 +18,7 @@ export class AccessoriesComponent implements OnInit {
   constructor(
     private accessoriesService: AccessoriesService,
     private productTypeDescriptionService: ProductTypeDescriptionService,
+    private shoppingCartService: ShoppingCartService,
     private route: ActivatedRoute
   ) { }
 
@@ -34,6 +36,13 @@ export class AccessoriesComponent implements OnInit {
           .pipe().subscribe(res => this.productTypeDescription = res);
       }
     )
+  }
+
+  /**
+   * Added product to product list in shopping cart service
+   */
+  addProductToShoppingCart(product: any, productGroup: string) {
+    this.shoppingCartService.addProductToProductList(product, productGroup);
   }
 
 }

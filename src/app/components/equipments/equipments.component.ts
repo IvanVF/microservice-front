@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {EquipmentService} from "../../services/equipment.service";
 import {ActivatedRoute} from "@angular/router";
 import {ProductTypeDescriptionService} from "../../services/product-type-description.service";
+import {ShoppingCartService} from "../../services/shopping-cart.service";
 
 @Component({
   selector: 'app-equipments',
@@ -16,6 +17,7 @@ export class EquipmentsComponent implements OnInit {
   constructor(
     private equipmentService: EquipmentService,
     private productTypeDescriptionService: ProductTypeDescriptionService,
+    private shoppingCartService: ShoppingCartService,
     private route: ActivatedRoute
   ) { }
 
@@ -32,6 +34,13 @@ export class EquipmentsComponent implements OnInit {
         this.productTypeDescriptionService.getDescriptionByName("EQUIPMENT_" + this.productType)
           .pipe().subscribe(res => this.productTypeDescription = res);
       })
+  }
+
+  /**
+   * Added product to product list in shopping cart service
+   */
+  addProductToShoppingCart(product: any, productGroup: string) {
+    this.shoppingCartService.addProductToProductList(product, productGroup);
   }
 
 }

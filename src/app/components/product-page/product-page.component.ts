@@ -6,6 +6,7 @@ import {ScooterService} from "../../services/scooter.service";
 import {SpareService} from "../../services/spare.service";
 import {AccessoriesService} from "../../services/accessories.service";
 import {ProductTypeDescriptionService} from "../../services/product-type-description.service";
+import {ShoppingCartService} from "../../services/shopping-cart.service";
 
 @Component({
   selector: 'app-product-page',
@@ -29,6 +30,7 @@ export class ProductPageComponent implements OnInit {
     private equipmentService: EquipmentService,
     private scooterService: ScooterService,
     private spareService: SpareService,
+    private shoppingCartService: ShoppingCartService
   ) { }
 
   ngOnInit(): void {
@@ -105,6 +107,13 @@ export class ProductPageComponent implements OnInit {
 
   changeImageSize() {
     this.isImageLarge = !this.isImageLarge;
+  }
+
+  /**
+   * Added product to product list in shopping cart service
+   */
+  addProductToShoppingCart(product: any, productGroup: string) {
+    this.shoppingCartService.addProductToProductList(product, productGroup);
   }
 
 }

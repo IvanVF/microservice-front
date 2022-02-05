@@ -22,7 +22,10 @@
         </div>
         <div *ngIf="equipment.discount === 0" class="BSAES-no-discount"></div>
         <div class="BSAES-price">{{(equipment.price * (1 - equipment.discount / 100)).toFixed(0)}} r.</div>
-        <img src="assets/images/bicycle_component/buy-button.jpg" class="BSAES-buy-btn" alt="By this accessory">
+        <img src="assets/images/bicycle_component/buy-button.jpg"
+             class="BSAES-buy-btn"
+             alt="By this accessory"
+             (click)="addProductToShoppingCart(equipment, 'EQUIPMENT')">
       </div>
       <hr/>
 

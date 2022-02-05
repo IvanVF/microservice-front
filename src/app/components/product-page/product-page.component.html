@@ -34,7 +34,10 @@
           <p style="margin-left: 25px; color: orange">Cash-back 5%</p>
         </div>
         <div class="col-sm">
-          <img src="assets/images/bicycle_component/buy-button.jpg" class="buy-btn" alt="By this scooter">
+          <img src="assets/images/bicycle_component/buy-button.jpg"
+               class="buy-btn"
+               alt="By this product"
+               (click)="addProductToShoppingCart(product, productGroup)">
           <p style="color: #5460a8; font-size: 18px; text-align: center; text-decoration-line: underline; text-decoration-style: dotted">By in one click</p>
         </div>
       </div>
