@@ -49,13 +49,28 @@
       </form>
     </div>
 
-    <div class="col-lg-2 additional-links color-change">
-      <p>CHECK STATUS</p>
-      <p>COMPLAINTS</p>
+    <div class="col-lg-3">
+      <div style="float: right" class="additional-links color-change">
+        <p>CHECK STATUS</p>
+        <p>COMPLAINTS</p>
+      </div>
+      <div class="additional-links color-change">
+        <p>CHOSEN</p>
+        <p>COMPARE</p>
+      </div>
     </div>
-    <div class="col-lg-2 additional-links color-change">
-      <p>CHOSEN</p>
-      <p>COMPARE</p>
+    <div [routerLink]="['/shopping-cart']" class="col-lg-2 additional-links color-change">
+      <div>
+        <div style="float: left">
+          <img src="/assets/images/header-shopping-cart.jpg" class="img-shopping-cart">
+        </div>
+
+        <div>
+          <p style="white-space: nowrap;">Total price: {{totalPrice.toFixed(0)}}</p>
+          <p style="white-space: nowrap;">Product count: {{productCount}} </p>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>

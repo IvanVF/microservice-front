@@ -20,6 +20,7 @@ import {AngularGradientProgressbarModule} from "angular-gradient-progressbar";
 import { AboutComponent } from './components/about/about.component';
 import { ForCustomersComponent } from './components/for-customers/for-customers.component';
 import { DeliveryComponent } from './components/delivery/delivery.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { DeliveryComponent } from './components/delivery/delivery.component';
     ProductPageComponent,
     AboutComponent,
     ForCustomersComponent,
-    DeliveryComponent
+    DeliveryComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,

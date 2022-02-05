@@ -12,6 +12,7 @@ import {ProductPageComponent} from "./components/product-page/product-page.compo
 import {AboutComponent} from "./components/about/about.component";
 import {ForCustomersComponent} from "./components/for-customers/for-customers.component";
 import {DeliveryComponent} from "./components/delivery/delivery.component";
+import {ShoppingCartComponent} from "./components/shopping-cart/shopping-cart.component";
 
 const routes: Routes = [
   {
@@ -49,6 +50,9 @@ const routes: Routes = [
   },
   {
     path: 'delivery', component: DeliveryComponent
+  },
+  {
+    path: 'shopping-cart', component: ShoppingCartComponent
   },
   {
     path: '**', component: NotFoundComponent

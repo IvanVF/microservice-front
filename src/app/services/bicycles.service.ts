@@ -1,8 +1,8 @@
 import {Injectable} from "@angular/core";
 import {HttpClient, HttpParams} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {BicycleEntity} from "./bicycle-entity";
-import {URLsService} from "../urls.service";
+import {BicycleEntity} from "../entities/bicycle-entity";
+import {URLsService} from "./urls.service";
 
 @Injectable({
   providedIn: 'root'
