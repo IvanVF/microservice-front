@@ -21,6 +21,10 @@ import { AboutComponent } from './components/about/about.component';
 import { ForCustomersComponent } from './components/for-customers/for-customers.component';
 import { DeliveryComponent } from './components/delivery/delivery.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatOption, MatOptionModule} from "@angular/material/core";
+import {MatSelectModule} from "@angular/material/select";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -46,7 +50,8 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     AppRoutingModule,
     AppUiModule,
     HttpClientModule,
-    AngularGradientProgressbarModule
+    FormsModule,
+    AngularGradientProgressbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
