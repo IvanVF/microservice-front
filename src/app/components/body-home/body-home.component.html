@@ -5,58 +5,47 @@
     </div>
 
     <div class="col-sm search">
-      <select name="Bicycles" class="form-select">
-        <option value="Bicycles">Bicycles</option>
-        <option value="Scooters">Scooters</option>
-        <option value="Accessories">Accessories</option>
-        <option value="Equipment">Equipment</option>
-        <option value="Spares">Spares</option>
-      </select>
+
+      <p>You selected: {{filters.productGroup}}</p>
+
+      <form>
+        <select [(ngModel)]="filters.productGroup" (change)="loadProductTypes()" name="Bicycles" class="form-select">
+          <option value="BICYCLES">Bicycles</option>
+          <option value="SCOOTERS">Scooters</option>
+          <option value="ACCESSORIES">Accessories</option>
+          <option value="EQUIPMENT">Equipment</option>
+          <option value="SPARE">Spares</option>
+        </select>
+      </form>
+
 
       <div class="price-select">
-        <label for="">Price from</label>
+        <label>Price from</label>
         <input type="number" class="">
-        <label for="">to</label>
+        <label>to</label>
         <input type="number" class="">
       </div>
 
-      <select name="type" class="form-select">
-        <option value="woman">Woman</option>
-        <option value="children">Children</option>
-        <option value="road">Road</option>
-        <option value="comfort">Comfort</option>
-        <option value="gravel">Gravel</option>
-      </select>
+      <form>
+        <select [(ngModel)]="filters.productType" (change)="loadManufacturers()" name="type" class="form-select">
+          <option *ngFor="let type of productTypes" value="{{type}}">{{type}}</option>
+        </select>
+      </form>
 
-      <select name="year" class="form-select">
-        <option value="2015">2015</option>
-        <option value="2016">2016</option>
-        <option value="2017">2017</option>
-        <option value="2018">2018</option>
-        <option value="2019">2019</option>
-        <option value="2020">2020</option>
-        <option value="2021">2021</option>
-      </select>
 
-      <select name="brand" class="form-select">
-        <option value="cannondale">Cannondale</option>
-        <option value="jamis">Jamis</option>
-        <option value="js">JT</option>
-        <option value="stels">Stels</option>
-        <option value="format">Format</option>
-        <option value="forward">Forward</option>
-        <option value="welt">Welt</option>
+      <select [(ngModel)]="filters.manufacturer" name="brand" class="form-select">
+        <option *ngFor="let manufacturer of manufacturers" value="{{manufacturer}}">{{manufacturer}}</option>
       </select>
 
       <div>
+        <input [(ngModel)]="filters.isInStock" type="checkbox">
+        <label>In stock</label>
         <input type="checkbox">
-        <label for="">In stock</label>
-        <input type="checkbox">
-        <label for="">Discount</label>
+        <label [(ngModel)]="filters.isHaveDiscount">Discount</label>
       </div>
 
       <div>
-        <button class="btn btn-choose">Choose</button>
+        <button class="btn btn-choose" (click)="loadProductsWithFilters()">Choose</button>
       </div>
     </div>
 
@@ -97,3 +86,4 @@
 
   </div>
 </div>
+

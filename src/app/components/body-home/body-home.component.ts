@@ -8,6 +8,7 @@ import {ShoppingCartService} from "../../services/shopping-cart.service";
 import {ShortProductEntity} from "../../entities/short-product-entity";
 import * as _ from "lodash";
 import {Subject} from "rxjs";
+import {FiltersService} from "../../services/filters.service";
 
 @Component({
   selector: 'app-body-home',
@@ -27,6 +28,17 @@ export class BodyHomeComponent implements OnInit {
   productGroup: string = "";
 
   /**
+   * Types of products in product group:
+   * group BICYCLES - types: WOMAN, CHILDREN, OFFROAD e.t.c
+   */
+  productTypes: any;
+
+  /**
+   * Available manufacturers for chosen product type
+   */
+  manufacturers: any;
+
+  /**
    * Parameters for GET request
    */
   requestParams = new Map();
@@ -40,6 +52,19 @@ export class BodyHomeComponent implements OnInit {
    * Array of products before new product will be added
    */
   productListOld: ShortProductEntity[] = [];
+
+  /**
+   * Filters for searching products
+   */
+  filters = {
+    productGroup: "BICYCLES",
+    productType: "Woman",
+    manufacturer: "Cannondale",
+    priceStart: 0,
+    priceEnd: 0,
+    isInStock: false,
+    isHaveDiscount: false
+  }
 
   /**
    * Map that response for chosen product group. Products of chosen group (true) loads in GET request
@@ -59,10 +84,19 @@ export class BodyHomeComponent implements OnInit {
     private equipmentService: EquipmentService,
     private spareService: SpareService,
     private shoppingCartService: ShoppingCartService,
+    private filtersService: FiltersService
   ) {
   }
 
   ngOnInit() {
+
+    this.productTypes = [
+      "WOMAN",
+      "CHILDREN",
+      "ROAD",
+      "COMFORT",
+      "GRAVEL"
+    ]
 
     this.bicycleService.getBicycles(this.requestParams)
       .pipe()
@@ -160,6 +194,42 @@ export class BodyHomeComponent implements OnInit {
     }
 
     this.productList.next(this.productListOld);
+  }
+
+  /**
+   * Load types of product group for filter
+   */
+  loadProductTypes() {
+    this.filtersService.loadProductTypes(this.filters.productGroup)
+      .pipe()
+      .subscribe((res) => {
+        this.productTypes = res;
+      });
+  }
+
+  /**
+   * Load available manufacturers for chosen product type
+   */
+  loadManufacturers() {
+    this.filtersService.loadManufacturers(this.filters.productGroup, this.filters.productType)
+      .pipe()
+      .subscribe( res => {
+        this.manufacturers = res;
+      });
+  }
+
+  loadProductsWithFilters() {
+    let params = new Map();
+    params.set("productGroup", this.filters.productGroup);
+    params.set("type", this.filters.productType.toUpperCase());
+    params.set("manufacturer", this.filters.manufacturer);
+    params.set("isInStock", this.filters.isInStock);
+    params.set("isHaveDiscount", this.filters.isHaveDiscount);
+    this.filtersService.loadProductsWithFilters(params)
+      .pipe()
+      .subscribe(res => {
+        this.products = res;
+      });
   }
 
 }
