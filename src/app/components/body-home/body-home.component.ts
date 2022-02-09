@@ -69,12 +69,12 @@ export class BodyHomeComponent implements OnInit {
   /**
    * Map that response for chosen product group. Products of chosen group (true) loads in GET request
    */
-  selectedItem = new Map<string, boolean> ([
+  selectedProductGroup = new Map<string, boolean> ([
     ["BICYCLES", false],
     ["SCOOTERS", false],
     ["ACCESSORIES", false],
     ["EQUIPMENT", false],
-    ["SPARES", false],
+    ["SPARE", false],
   ]);
 
   constructor(
@@ -102,7 +102,7 @@ export class BodyHomeComponent implements OnInit {
       .pipe()
       .subscribe(res => {
         this.products = res;
-        this.selectedItem.set("BICYCLES", true)
+        this.selectedProductGroup.set("BICYCLES", true)
         this.productGroup = "BICYCLES";
       });
 
@@ -113,15 +113,15 @@ export class BodyHomeComponent implements OnInit {
   }
 
   /**
-   * Set value true for selected product group (bicycle, scooter e.t.c) in Map selectedItem
+   * Set value true for selected product group (bicycle, scooter e.t.c) in Map selectedProductGroup
    * @param itemType
    */
-  refreshItemType(itemType: string) {
-    for (let key of this.selectedItem.keys()) {
-      this.selectedItem.set(key, false);
+  refreshProductGroup(productGroup: string) {
+    for (let key of this.selectedProductGroup.keys()) {
+      this.selectedProductGroup.set(key, false);
     }
-    this.productGroup = itemType;
-      this.selectedItem.set(itemType, true);
+    this.productGroup = productGroup;
+      this.selectedProductGroup.set(productGroup, true);
   }
 
   /**
@@ -130,7 +130,7 @@ export class BodyHomeComponent implements OnInit {
    * @param itemType
    */
   changeProductGroup(productGroup: string) {
-    this.refreshItemType(productGroup);
+    this.refreshProductGroup(productGroup);
     switch (productGroup) {
       case "BICYCLES": {
         this.bicycleService.getBicycles(this.requestParams)
@@ -164,7 +164,7 @@ export class BodyHomeComponent implements OnInit {
           })
         break;
       }
-      case "SPARES": {
+      case "SPARE": {
         this.spareService.getSpares(this.requestParams)
           .pipe()
           .subscribe(res => {
@@ -201,6 +201,8 @@ export class BodyHomeComponent implements OnInit {
    */
   loadProductTypes() {
     this.filters.manufacturer = "";
+    this.filters.productType = "";
+    this.manufacturers = [];
     this.filtersService.loadProductTypes(this.filters.productGroup)
       .pipe()
       .subscribe((res) => {
@@ -234,10 +236,7 @@ export class BodyHomeComponent implements OnInit {
       .subscribe(res => {
         this.products = res;
       });
-  }
-
-  setProductType() {
-
+    this.refreshProductGroup(this.filters.productGroup)
   }
 
 }

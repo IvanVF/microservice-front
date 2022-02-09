@@ -49,11 +49,11 @@
 
     <div class="container bars-categories">
       <div class="row">
-        <div (click)="changeProductGroup('BICYCLES')" [ngClass]="{'select-item-type': selectedItem.get('BICYCLES')}" class="col-sm">Bicycles</div>
-        <div (click)="changeProductGroup('SCOOTERS')" [ngClass]="{'select-item-type': selectedItem.get('SCOOTERS')}" class="col-sm">Scooters</div>
-        <div (click)="changeProductGroup('ACCESSORIES')" [ngClass]="{'select-item-type': selectedItem.get('ACCESSORIES')}" class="col-sm">Accessories</div>
-        <div (click)="changeProductGroup('EQUIPMENT')" [ngClass]="{'select-item-type': selectedItem.get('EQUIPMENT')}" class="col-sm">Equipment</div>
-        <div (click)="changeProductGroup('SPARES')" [ngClass]="{'select-item-type': selectedItem.get('SPARES')}" class="col-sm">Spares</div>
+        <div (click)="changeProductGroup('BICYCLES')" [ngClass]="{'select-item-type': selectedProductGroup.get('BICYCLES')}" class="col-sm">Bicycles</div>
+        <div (click)="changeProductGroup('SCOOTERS')" [ngClass]="{'select-item-type': selectedProductGroup.get('SCOOTERS')}" class="col-sm">Scooters</div>
+        <div (click)="changeProductGroup('ACCESSORIES')" [ngClass]="{'select-item-type': selectedProductGroup.get('ACCESSORIES')}" class="col-sm">Accessories</div>
+        <div (click)="changeProductGroup('EQUIPMENT')" [ngClass]="{'select-item-type': selectedProductGroup.get('EQUIPMENT')}" class="col-sm">Equipment</div>
+        <div (click)="changeProductGroup('SPARE')" [ngClass]="{'select-item-type': selectedProductGroup.get('SPARE')}" class="col-sm">Spares</div>
       </div>
     </div>
 
