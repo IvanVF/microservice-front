@@ -58,10 +58,10 @@ export class BodyHomeComponent implements OnInit {
    */
   filters = {
     productGroup: "BICYCLES",
-    productType: "Woman",
-    manufacturer: "Cannondale",
-    priceStart: 0,
-    priceEnd: 0,
+    productType: "",
+    manufacturer: "",
+    priceFrom: 0,
+    priceTo: 0,
     isInStock: false,
     isHaveDiscount: false
   }
@@ -113,7 +113,7 @@ export class BodyHomeComponent implements OnInit {
   }
 
   /**
-   * Set value true for selected item (bicycle, scooter e.t.c) in Map selectedItem
+   * Set value true for selected product group (bicycle, scooter e.t.c) in Map selectedItem
    * @param itemType
    */
   refreshItemType(itemType: string) {
@@ -125,8 +125,8 @@ export class BodyHomeComponent implements OnInit {
   }
 
   /**
-   * Load information for selected item
-   * and set item selected
+   * Load information for selected product group
+   * in main page part
    * @param itemType
    */
   changeProductGroup(productGroup: string) {
@@ -200,6 +200,7 @@ export class BodyHomeComponent implements OnInit {
    * Load types of product group for filter
    */
   loadProductTypes() {
+    this.filters.manufacturer = "";
     this.filtersService.loadProductTypes(this.filters.productGroup)
       .pipe()
       .subscribe((res) => {
@@ -211,6 +212,7 @@ export class BodyHomeComponent implements OnInit {
    * Load available manufacturers for chosen product type
    */
   loadManufacturers() {
+    this.filters.manufacturer = "";
     this.filtersService.loadManufacturers(this.filters.productGroup, this.filters.productType)
       .pipe()
       .subscribe( res => {
@@ -225,11 +227,17 @@ export class BodyHomeComponent implements OnInit {
     params.set("manufacturer", this.filters.manufacturer);
     params.set("isInStock", this.filters.isInStock);
     params.set("isHaveDiscount", this.filters.isHaveDiscount);
+    params.set("priceFrom", this.filters.priceFrom);
+    params.set("priceTo", this.filters.priceTo);
     this.filtersService.loadProductsWithFilters(params)
       .pipe()
       .subscribe(res => {
         this.products = res;
       });
+  }
+
+  setProductType() {
+
   }
 
 }

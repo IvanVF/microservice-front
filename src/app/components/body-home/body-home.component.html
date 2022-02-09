@@ -6,8 +6,6 @@
 
     <div class="col-sm search">
 
-      <p>You selected: {{filters.productGroup}}</p>
-
       <form>
         <select [(ngModel)]="filters.productGroup" (change)="loadProductTypes()" name="Bicycles" class="form-select">
           <option value="BICYCLES">Bicycles</option>
@@ -21,9 +19,9 @@
 
       <div class="price-select">
         <label>Price from</label>
-        <input type="number" class="">
+        <input type="number" [(ngModel)]="filters.priceFrom">
         <label>to</label>
-        <input type="number" class="">
+        <input type="number" [(ngModel)]="filters.priceTo">
       </div>
 
       <form>
@@ -40,12 +38,12 @@
       <div>
         <input [(ngModel)]="filters.isInStock" type="checkbox">
         <label>In stock</label>
-        <input type="checkbox">
-        <label [(ngModel)]="filters.isHaveDiscount">Discount</label>
+        <input [(ngModel)]="filters.isHaveDiscount" type="checkbox">
+        <label>Discount</label>
       </div>
 
       <div>
-        <button class="btn btn-choose" (click)="loadProductsWithFilters()">Choose</button>
+        <button class="btn btn-choose" (click)="loadProductsWithFilters()">CHOOSE</button>
       </div>
     </div>
 
