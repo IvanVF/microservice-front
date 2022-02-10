@@ -8,7 +8,7 @@
              class="img-fluid img-enter-profile">
       </div>
       <div>
-        Enter You profile
+        Enter Your profile
       </div>
 
     </div>
@@ -44,8 +44,8 @@
     </div>
     <div class="col-sm">
       <form action="">
-        <input type="text" value="Search" size="40" class="search-input">
-        <input type="submit" value="" class="search-submit">
+        <input [(ngModel)]="searchString" name="search" type="text" placeholder="Search" size="40" class="search-input">
+        <input [routerLink]="['/']"  (click)="loadBySearchString(searchString)" type="submit" value="" class="search-submit">
       </form>
     </div>
 

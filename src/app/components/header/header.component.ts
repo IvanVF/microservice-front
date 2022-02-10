@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ShoppingCartService} from "../../services/shopping-cart.service";
+import {BodyHomeComponent} from "../body-home/body-home.component";
+import {FiltersService} from "../../services/filters.service";
 
 
 @Component({
@@ -19,8 +21,14 @@ export class HeaderComponent implements OnInit {
    */
   productCount: number = 0;
 
+  /**
+   * Value of search string
+   */
+  searchString: string = "";
+
   constructor(
-    private shoppingCartService: ShoppingCartService
+    private shoppingCartService: ShoppingCartService,
+    private filterService: FiltersService
   ) {
   }
 
@@ -34,5 +42,20 @@ export class HeaderComponent implements OnInit {
         this.productCount = productList.length;
       }
     })
+  }
+
+  /**
+   *
+   */
+  loadBySearchString(searchString: string) {
+    let products: any;
+    this.filterService.loadProductsWithSearchString(searchString)
+      .pipe()
+      .subscribe(res => {
+        products = res;
+        this.filterService.searchStringResponse.next(products);
+      });
+
+    this.searchString = "";
   }
 }
