@@ -48,6 +48,8 @@ export class BodyHomeComponent implements OnInit {
    */
   productList = this.shoppingCartService.productList;
 
+  searchStringResponse = this.filtersService.searchStringResponse;
+
   /**
    * Array of products before new product will be added
    */
@@ -110,6 +112,11 @@ export class BodyHomeComponent implements OnInit {
       this.productListOld = prList;
       console.log("onInit: ", prList.length);
     });
+
+    this.searchStringResponse.subscribe((fromSearchStr) => {
+      this.products = fromSearchStr;
+      let a =5;
+    })
   }
 
   /**
@@ -237,6 +244,10 @@ export class BodyHomeComponent implements OnInit {
         this.products = res;
       });
     this.refreshProductGroup(this.filters.productGroup)
+  }
+
+  loadBySearchString(searchString: string) {
+
   }
 
 }
