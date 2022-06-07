@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { AutharisationComponent } from './components/autharisation/autharisation.component';
+import { AuthorisationComponent } from './components/autharisation/authorisation.component';
 import { HeaderComponent } from './components/header/header.component';
 import {AppUiModule} from "./app-ui.module";
 import {BodyHomeComponent} from "./components/body-home/body-home.component";
@@ -30,7 +30,7 @@ import {FormsModule} from "@angular/forms";
   declarations: [
     AppComponent,
     NotFoundComponent,
-    AutharisationComponent,
+    AuthorisationComponent,
     HeaderComponent,
     BodyHomeComponent,
     FooterComponent,
