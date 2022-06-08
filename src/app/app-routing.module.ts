@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {NotFoundComponent} from "./components/not-found/not-found.component";
-import {AutharisationComponent} from "./components/autharisation/autharisation.component";
+import {AuthorisationComponent} from "./components/autharisation/authorisation.component";
 import {BodyHomeComponent} from "./components/body-home/body-home.component";
 import {BicyclesComponent} from "./components/bicycles/bicycles.component";
 import {ScootersComponent} from "./components/scooters/scooters.component";
@@ -16,7 +16,7 @@ import {ShoppingCartComponent} from "./components/shopping-cart/shopping-cart.co
 
 const routes: Routes = [
   {
-    path: 'auth', component: AutharisationComponent
+    path: 'auth', component: AuthorisationComponent
   },
   {
     path: '', component: BodyHomeComponent
