@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AuthorisationService} from "../../services/authorisation.service";
+import jwtDecode, {JwtPayload} from "jwt-decode";
 import {AuthResponse} from "../../entities/auth-response";
 
 @Component({
@@ -10,21 +11,20 @@ import {AuthResponse} from "../../entities/auth-response";
 export class AuthorisationComponent implements OnInit {
   password: string = "";
   username: string = "";
-  authResponse: any;
   authToken: string = "";
 
 
   constructor(
     private authService: AuthorisationService,
-  ) { }
-
-  async login(username: string, password: string) {
-    await this.authService.login(username, password).pipe().subscribe(res => this.authResponse = res);
-    this.authToken = this.authResponse.token;
-    let a = "43";
+  ) {
   }
 
   ngOnInit(): void {
   }
 
+  async login(username: string, password: string) {
+    let authResp: AuthResponse = await this.authService.login("superadmin", "100");
+    this.authToken = authResp.token;
+    let tokenPayload = jwtDecode<JwtPayload>(this.authToken);
+  }
 }
